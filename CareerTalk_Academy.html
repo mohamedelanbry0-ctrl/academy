@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerTalk Academy | Train to Hire</title>
+<meta name="description" content="CareerTalk Academy - Train to Hire. طور الإنجليزية واستعد لوظائف الكول سنتر واجتياز المقابلات الشخصية.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{--bg:#f5f7fb;--card:#fff;--text:#101828;--muted:#667085;--navy:#071a3a;--blue:#1459d9;--blue2:#0d3fa7;--gold:#d99b22;--border:#e4e7ec;--shadow:0 15px 50px rgba(15,23,42,.08)}
+body.dark{--bg:#050b17;--card:#0b162b;--text:#f8fafc;--muted:#a9b5c8;--navy:#071a3a;--blue:#3f7df5;--blue2:#2357b8;--gold:#f5bd4d;--border:#1c2a40;--shadow:0 20px 60px rgba(0,0,0,.35)}
+body{font-family:"Cairo",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:.3s}
+a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}
+.navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+.dark .navbar{background:rgba(5,11,23,.78);border-color:rgba(255,255,255,.06)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo-text{font-size:22px;font-weight:900;color:var(--text)}.logo-text span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;align-items:center}.nav-links a{color:var(--muted);font-weight:700;transition:.2s}.nav-links a:hover{color:var(--blue)}
+.nav-actions{display:flex;align-items:center;gap:10px}.theme-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:19px}.nav-cta{padding:10px 18px;border-radius:10px;background:var(--blue);color:white;font-weight:800}
+.hero{min-height:100vh;padding-top:76px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 85% 25%,rgba(20,89,217,.16),transparent 30%),radial-gradient(circle at 10% 80%,rgba(217,155,34,.10),transparent 25%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;padding:80px 0}.hero-badge{display:inline-flex;padding:7px 14px;border-radius:30px;color:var(--gold);border:1px solid rgba(217,155,34,.4);background:rgba(217,155,34,.08);font-weight:800;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,5vw,68px);line-height:1.18;font-weight:900;letter-spacing:-1px}.hero h1 span{color:var(--blue)}
+.hero-description{font-size:19px;color:var(--muted);margin:25px 0 30px;max-width:680px}.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:14px 24px;border-radius:12px;font-weight:800;display:inline-flex;justify-content:center;align-items:center;transition:.25s}.btn:hover{transform:translateY(-3px)}.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 12px 30px rgba(20,89,217,.25)}.btn-outline{border:1px solid var(--border);background:var(--card)}
+.hero-info{display:flex;gap:25px;margin-top:30px;flex-wrap:wrap}.info-item strong{display:block;font-size:23px;color:var(--text)}.info-item span{color:var(--muted);font-size:13px}
+.hero-card{background:linear-gradient(145deg,#0b2654,#06152e);border-radius:32px;padding:35px;color:#fff;box-shadow:0 30px 80px rgba(3,15,40,.3);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(20,89,217,.25);filter:blur(50px);top:-120px;right:-100px}
+.academy-logo{width:125px;height:125px;border-radius:50%;margin:auto;display:grid;place-items:center;border:2px solid #f5bd4d;background:radial-gradient(circle,#143d78,#06152e);box-shadow:0 0 50px rgba(245,189,77,.15);font-size:44px;font-weight:900;color:#f5bd4d;position:relative}
+.hero-card h2{text-align:center;margin-top:20px;font-size:28px}.hero-card .subtitle{text-align:center;color:#aebbd0;font-size:14px;margin-top:5px}
+.card-stat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}.card-stat div{padding:15px 8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;text-align:center}.card-stat strong{color:#f5bd4d;display:block;font-size:19px}.card-stat span{font-size:11px;color:#aebbd0}
+section{padding:95px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 50px}.section-head .small{color:var(--gold);font-weight:900}.section-head h2{font-size:40px;line-height:1.3;margin:8px 0}.section-head p{color:var(--muted)}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.course{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:30px;box-shadow:var(--shadow);position:relative;transition:.3s}.course:hover{transform:translateY(-8px)}.course.popular{border:2px solid var(--gold)}.popular-label{position:absolute;top:18px;left:18px;background:var(--gold);color:#101828;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:900}.course-level{color:var(--blue);font-weight:900}.course h3{font-size:23px;margin:10px 0}.price{font-size:42px;font-weight:900}.price small{font-size:14px;color:var(--muted)}.course-description{color:var(--muted);min-height:60px}.course ul{list-style:none;margin:20px 0}.course li{color:var(--muted);margin:8px 0}.course li:before{content:"✓";color:var(--gold);font-weight:900;margin-left:8px}
+.why{background:var(--navy);color:#fff}.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.why h2{font-size:42px;line-height:1.3}.why p{color:#aebbd0;margin:20px 0}.features{display:grid;grid-template-columns:1fr 1fr;gap:15px}.feature{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:23px;border-radius:18px}.feature-icon{font-size:28px}.feature h3{margin:5px 0}.feature p{margin:0;font-size:13px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{text-align:center;padding:30px 20px;background:var(--card);border:1px solid var(--border);border-radius:20px}.step-number{width:55px;height:55px;margin:auto;display:grid;place-items:center;border-radius:50%;background:rgba(20,89,217,.1);color:var(--blue);font-size:20px;font-weight:900}.step h3{margin:12px 0 5px}.step p{color:var(--muted);font-size:14px}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.testimonial{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:var(--shadow)}.stars{color:#f5bd4d;letter-spacing:3px}.testimonial p{color:var(--muted);margin:15px 0}.person{display:flex;align-items:center;gap:12px}.avatar{width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--gold));display:grid;place-items:center;color:#fff;font-weight:900}
+.faq{max-width:850px;margin:auto}details{background:var(--card);border:1px solid var(--border);margin-bottom:12px;border-radius:15px;padding:18px 22px}summary{cursor:pointer;font-weight:800}details p{color:var(--muted);margin-top:12px}
+.final-cta{padding:80px 20px}.cta-box{background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.15),transparent 25%),linear-gradient(135deg,#0d4fc9,#071a3a);color:#fff;border-radius:30px;padding:60px 30px;text-align:center;overflow:hidden}.cta-box h2{font-size:42px}.cta-box p{color:#d4def0;max-width:650px;margin:15px auto 25px}
+footer{background:#030914;color:#aebbd0;padding:45px 0 25px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}footer h3{color:#fff;margin-bottom:12px}footer a{display:block;margin:5px 0}.phone{color:#f5bd4d;font-size:23px;font-weight:900}.copyright{text-align:center;border-top:1px solid rgba(255,255,255,.08);margin-top:30px;padding-top:20px;font-size:13px}
+.whatsapp{position:fixed;left:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;font-size:28px;z-index:999;box-shadow:0 10px 30px rgba(37,211,102,.3);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:900px){.nav-links{display:none}.hero-grid,.why-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-grid{padding:70px 0}.hero-content{text-align:center}.hero-description{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-info{justify-content:center}.courses{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.testimonials{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+@media(max-width:550px){.hero h1{font-size:38px}.section-head h2{font-size:30px}.why h2{font-size:32px}.features{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.cta-box h2{font-size:30px}.card-stat{grid-template-columns:1fr}.btn{width:100%}.nav-cta{display:none}}
+</style>
+</head>
+<body>
+<header class="navbar">
+<div class="container nav-inner">
+<a href="#" class="logo-text">Career<span>Talk</span> Academy</a>
+<nav class="nav-links">
+<a href="#programs">البرامج</a><a href="#why">ليه CareerTalk؟</a><a href="#steps">طريقة التدريب</a><a href="#reviews">آراء الطلاب</a><a href="#faq">الأسئلة</a>
+</nav>
+<div class="nav-actions">
+<button class="theme-btn" id="themeToggle">🌙</button>
+<a class="nav-cta" href="https://wa.me/201095126158?text=مرحباً%20أريد%20الاستفسار%20عن%20Train%20to%20Hire" target="_blank">احجز الآن</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-content">
+<div class="hero-badge">🚀 TRAIN TO HIRE</div>
+<h1>الإنجليزي مش مجرد لغة...<br><span>دي مفتاح شغلك.</span></h1>
+<p class="hero-description">عايز تشتغل في أكبر شركات الكول سنتر ولكن مستواك في الإنجليزي محتاج ظبطة؟ برنامج <strong>Train to Hire</strong> هيأهلك خطوة بخطوة من خلال تدريب عملي مكثف يساعدك على تطوير الـSpeaking، بناء الثقة، والاستعداد للـInterviews.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="https://wa.me/201095126158?text=مرحباً%20أريد%20حجز%20اختبار%20تحديد%20المستوى" target="_blank">احجز اختبار تحديد المستوى</a>
+<a class="btn btn-outline" href="#programs">شوف البرامج</a>
+</div>
+<div class="hero-info"><div class="info-item"><strong>A2 → B1</strong><span>تأسيس وثقة</span></div><div class="info-item"><strong>B1 → B2</strong><span>احتراف للعمل</span></div><div class="info-item"><strong>50 جنيه</strong><span>اختبار تحديد المستوى</span></div></div>
+</div>
+<div class="hero-card">
+<div class="academy-logo">CT</div><h2>CareerTalk</h2><div class="subtitle">ACADEMY</div><div class="subtitle">Speak Confidently. Communicate Professionally. Get Hired.</div>
+<div class="card-stat"><div><strong>A2 → B1</strong><span>Foundation</span></div><div><strong>B1 → B2</strong><span>Professional</span></div><div><strong>50 EGP</strong><span>Placement</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="programs"><div class="container"><div class="section-head"><div class="small">OUR PROGRAMS</div><h2>اختار البرنامج المناسب لمستواك</h2><p>مش هدفنا إنك تحفظ إنجليزي، هدفنا إنك تستخدمه في الحياة والشغل.</p></div>
+<div class="courses">
+<div class="course"><div class="course-level">LEVEL A2 → B1</div><h3>English Foundation</h3><div class="price">1,000 <small>جنيه</small></div><p class="course-description">اكسر حاجز الخوف وابني أساس قوي في التحدث والتواصل.</p><ul><li>Speaking & Conversation</li><li>Grammar Foundation</li><li>Vocabulary Building</li><li>Confidence Building</li><li>Real-life English</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/201095126158?text=أريد%20الحجز%20في%20برنامج%20A2%20إلى%20B1" target="_blank">احجز الآن</a></div>
+<div class="course popular"><div class="popular-label">الأكثر طلباً</div><div class="course-level">LEVEL B1 → B2</div><h3>Professional English</h3><div class="price">1,500 <small>جنيه</small></div><p class="course-description">طور لغتك للمستوى المهني واستعد لوظائف خدمة العملاء والدعم الفني.</p><ul><li>Professional Speaking</li><li>Customer Service English</li><li>Technical Support Vocabulary</li><li>Interview Preparation</li><li>Workplace Communication</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/201095126158?text=أريد%20الحجز%20في%20برنامج%20B1%20إلى%20B2" target="_blank">احجز الآن</a></div>
+<div class="course"><div class="course-level">PLACEMENT TEST</div><h3>اختبار تحديد المستوى</h3><div class="price">50 <small>جنيه</small></div><p class="course-description">اعرف مستواك الحقيقي قبل ما تبدأ، وخد التوجيه المناسب للكورس اللي يناسبك.</p><ul><li>تحديد مستوى اللغة</li><li>تقييم مهاراتك</li><li>معرفة نقاط الضعف</li><li>ترشيح البرنامج المناسب</li></ul><a class="btn btn-primary" style="width:100%" href="https://wa.me/201095126158?text=أريد%20حجز%20اختبار%20تحديد%20المستوى" target="_blank">احجز الاختبار</a></div>
+</div></div></section>
+
+<section class="why" id="why"><div class="container why-grid"><div><div class="small" style="color:#f5bd4d;font-weight:900">WHY CAREERTALK?</div><h2>مش بنعلمك English بس...<br>بنجهزك لسوق العمل.</h2><p>البرنامج مصمم عشان ينقلك من مجرد دراسة اللغة إلى استخدامها في مواقف حقيقية، مكالمات، خدمة عملاء، ومقابلات شخصية.</p><a class="btn btn-primary" href="https://wa.me/201095126158?text=أريد%20معرفة%20تفاصيل%20Train%20to%20Hire" target="_blank">ابدأ رحلتك الآن</a></div><div class="features"><div class="feature"><div class="feature-icon">🗣️</div><h3>Speaking</h3><p>تطوير التحدث والطلاقة والثقة.</p></div><div class="feature"><div class="feature-icon">💼</div><h3>Job English</h3><p>مصطلحات وتواصل خاص ببيئة العمل.</p></div><div class="feature"><div class="feature-icon">🎯</div><h3>Interviews</h3><p>تجهيز عملي للمقابلات الشخصية.</p></div><div class="feature"><div class="feature-icon">🚀</div><h3>Career Growth</h3><p>مهارات تساعدك في فرصك القادمة.</p></div></div></div></section>
+
+<section id="steps"><div class="container"><div class="section-head"><div class="small">HOW IT WORKS</div><h2>رحلتك مع CareerTalk</h2><p>أربع خطوات بسيطة من معرفة مستواك لحد الاستعداد للوظيفة.</p></div><div class="steps"><div class="step"><div class="step-number">01</div><h3>حدد مستواك</h3><p>ابدأ باختبار تحديد المستوى.</p></div><div class="step"><div class="step-number">02</div><h3>اختار البرنامج</h3><p>نوجهك للبرنامج المناسب لمستواك.</p></div><div class="step"><div class="step-number">03</div><h3>اتدرب عملياً</h3><p>Speaking ومواقف حقيقية ومصطلحات شغل.</p></div><div class="step"><div class="step-number">04</div><h3>استعد للانترفيو</h3><p>جهّز نفسك لسوق العمل والمقابلات.</p></div></div></div></section>
+
+<section id="reviews"><div class="container"><div class="section-head"><div class="small">STUDENT REVIEWS</div><h2>طلابنا بيقولوا إيه؟</h2><p>قسم آراء الطلاب تقدر تعدله وتحط فيه التقييمات الحقيقية بعد بدء البرنامج.</p></div><div class="testimonials"><div class="testimonial"><div class="stars">★★★★★</div><p>"التدريب ساعدني جداً إني أتخلص من الخوف وأنا بتكلم English، وبقيت أقدر أتكلم بثقة أكتر."</p><div class="person"><div class="avatar">A</div><div><strong>Ahmed</strong><div style="color:var(--muted);font-size:12px">Train to Hire</div></div></div></div><div class="testimonial"><div class="stars">★★★★★</div><p>"أكتر حاجة عجبتني إن التدريب عملي ومش مجرد Grammar، خصوصاً جزء الـInterview."</p><div class="person"><div class="avatar">M</div><div><strong>Mohamed</strong><div style="color:var(--muted);font-size:12px">Professional English</div></div></div></div><div class="testimonial"><div class="stars">★★★★★</div><p>"كنت متردد أبدأ، لكن اختبار تحديد المستوى خلاني أعرف أنا محتاج أبدأ منين بالضبط."</p><div class="person"><div class="avatar">S</div><div><strong>Salma</strong><div style="color:var(--muted);font-size:12px">Placement Test</div></div></div></div></div></div></section>
+
+<section id="faq"><div class="container"><div class="section-head"><div class="small">FAQ</div><h2>الأسئلة الشائعة</h2></div><div class="faq"><details><summary>هل لازم أعمل اختبار تحديد المستوى؟</summary><p>يفضل عمل الاختبار عشان نعرف مستواك ونوجهك للبرنامج الأنسب ليك.</p></details><details><summary>هل البرنامج مناسب لو مستوايا ضعيف؟</summary><p>أيوه. برنامج A2 → B1 معمول لتقوية الأساس وكسر حاجز الخوف وبناء الثقة في التحدث.</p></details><details><summary>هل التدريب مركز على الكول سنتر؟</summary><p>برنامج B1 → B2 يحتوي على تدريب على مصطلحات خدمة العملاء والدعم الفني والتواصل المهني والاستعداد للمقابلات.</p></details><details><summary>إزاي أحجز؟</summary><p>اضغط على أي زر حجز في الموقع وسيتم تحويلك مباشرة إلى WhatsApp للتواصل والحجز.</p></details></div></div></section>
+
+<section class="final-cta"><div class="container"><div class="cta-box"><h2>جاهز تبدأ؟</h2><p>الأماكن محدودة لضمان أعلى استفادة لكل متدرب. احجز اختبار تحديد المستوى وابدأ أول خطوة في طريقك لسوق العمل.</p><a class="btn" style="background:#f5bd4d;color:#071a3a" href="https://wa.me/201095126158?text=مرحباً%20أريد%20حجز%20اختبار%20تحديد%20المستوى%20في%20CareerTalk%20Academy" target="_blank">📱 احجز عبر WhatsApp</a></div></div></section>
+
+<footer><div class="container"><div class="footer-grid"><div><h3>CareerTalk Academy</h3><p>Speak Confidently.<br>Communicate Professionally.<br>Get Hired.</p><p style="margin-top:10px">برنامج Train to Hire لتطوير اللغة الإنجليزية والاستعداد لسوق العمل.</p></div><div><h3>روابط</h3><a href="#programs">البرامج</a><a href="#why">لماذا CareerTalk</a><a href="#steps">طريقة التدريب</a><a href="#faq">الأسئلة الشائعة</a></div><div><h3>تواصل معنا</h3><a class="phone" href="tel:01095126158">01095126158</a><a href="https://wa.me/201095126158" target="_blank">WhatsApp</a></div></div><div class="copyright">© 2026 CareerTalk Academy — All Rights Reserved</div></div></footer>
+<a class="whatsapp" href="https://wa.me/201095126158?text=مرحباً%20أريد%20الاستفسار%20عن%20CareerTalk%20Academy" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+const themeButton=document.getElementById("themeToggle");
+const savedTheme=localStorage.getItem("careerTalkTheme");
+if(savedTheme==="dark"){document.body.classList.add("dark");themeButton.textContent="☀️";}
+themeButton.addEventListener("click",function(){document.body.classList.toggle("dark");if(document.body.classList.contains("dark")){localStorage.setItem("careerTalkTheme","dark");themeButton.textContent="☀️";}else{localStorage.setItem("careerTalkTheme","light");themeButton.textContent="🌙";}});
+window.addEventListener("scroll",function(){const nav=document.querySelector(".navbar");nav.style.boxShadow=window.scrollY>20?"0 10px 30px rgba(0,0,0,.08)":"none";});
+</script>
+</body>
+</html>
