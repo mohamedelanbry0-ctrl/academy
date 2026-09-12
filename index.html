@@ -1,108 +1,2670 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <title>CareerTalk Academy | طوّر لغتك الإنجليزية وابنِ مستقبلك</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="CareerTalk Academy - أكاديمية متخصصة في تطوير اللغة الإنجليزية من A1 إلى B2 مع التركيز على Speaking وListening والاستعداد لسوق العمل.">
 
-<meta name="description"
-content="CareerTalk Academy - طوّر لغتك الإنجليزية وابنِ مستقبلك">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<meta name="theme-color"
-content="#071a30">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-<title>CareerTalk Academy | Speak • Learn • Get Hired</title>
+  <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
+
+    :root {
+      --bg: #07111f;
+      --bg-secondary: #0b1728;
+      --card: rgba(16, 30, 50, 0.82);
+
+      --text: #f8fafc;
+      --text-secondary: #aab7c8;
+      --text-muted: #8190a5;
+
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+
+      --gold: #f5c451;
+      --gold-light: #ffd86b;
+
+      --border: rgba(255,255,255,0.09);
+
+      --shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+      --nav-bg: rgba(7,17,31,0.82);
+    }
+
+    body.light {
+      --bg: #f5f7fb;
+      --bg-secondary: #ffffff;
+      --card: rgba(255,255,255,0.92);
+
+      --text: #101828;
+      --text-secondary: #475467;
+      --text-muted: #667085;
+
+      --border: rgba(16,24,40,0.10);
+
+      --shadow: 0 20px 50px rgba(16,24,40,0.10);
+
+      --nav-bg: rgba(255,255,255,0.88);
+    }
 
 
-<style>
+    /* =====================================================
+       RESET
+    ===================================================== */
 
-/* =====================================================
-   CAREERTALK ACADEMY
-   PREMIUM LANDING PAGE
-===================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(37,99,235,0.14), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(245,196,81,0.08), transparent 25%),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.8;
+      transition:
+        background 0.35s ease,
+        color 0.35s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
 
 
-/* =====================================================
-   ROOT
-===================================================== */
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
 
-:root{
-
---gold:#ffc21a;
---gold-light:#ffd95c;
---gold-dark:#d99700;
-
---navy:#06172b;
---navy-2:#0a213b;
---navy-3:#0d2c4c;
-
---white:#ffffff;
---offwhite:#f7f9fc;
-
---text:#08182c;
---muted:#68798b;
-
---border:#e3e9f0;
-
---success:#20c46b;
-
---shadow:
-0 20px 60px rgba(5,22,42,.08);
-
-}
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
 
 
-/* =====================================================
-   RESET
-===================================================== */
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
 
-*{
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
 
-margin:0;
-padding:0;
-box-sizing:border-box;
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
-}
+      border-bottom: 1px solid var(--border);
+    }
 
-html{
+    .navbar {
+      height: 78px;
 
-scroll-behavior:smooth;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-body{
+    .logo {
+      width: 48px;
+      height: 48px;
 
-font-family:
-Arial,
-Tahoma,
-sans-serif;
+      display: grid;
+      place-items: center;
 
-background:
-var(--offwhite);
+      border-radius: 16px;
 
-color:
-var(--text);
+      background:
+        linear-gradient(135deg,
+        var(--primary),
+        #1648b9);
 
-line-height:
-1.7;
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
 
-overflow-x:hidden;
+      box-shadow:
+        0 10px 30px rgba(37,99,235,0.30);
+    }
 
-}
+    .brand-text strong {
+      display: block;
+      font-size: 17px;
+      font-weight: 900;
+    }
 
-a{
+    .brand-text span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-top: -3px;
+    }
 
-text-decoration:none;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
 
-color:inherit;
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 600;
 
-}
+      transition: 0.25s;
+    }
 
-button{
+    .nav-links a:hover {
+      color: var(--gold);
+    }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn {
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--border);
+      border-radius: 13px;
+
+      background: var(--card);
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: 19px;
+
+      transition: 0.25s;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+
+      padding: 10px 18px;
+      border-radius: 12px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition: 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+
+      padding-top: 145px;
+      padding-bottom: 80px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+
+      gap: 65px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 13px;
+
+      border-radius: 50px;
+
+      background: rgba(37,99,235,0.10);
+      border: 1px solid rgba(37,99,235,0.25);
+
+      color: var(--primary-light);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1.15;
+
+      font-weight: 900;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background:
+        linear-gradient(90deg,
+        var(--primary-light),
+        var(--gold));
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      color: var(--text-secondary);
+
+      font-size: 17px;
+
+      line-height: 2;
+
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 25px;
+
+      background: var(--primary);
+
+      color: white;
+
+      border-radius: 13px;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      box-shadow:
+        0 12px 35px rgba(37,99,235,0.25);
+
+      transition: 0.25s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: var(--primary-light);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 25px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      color: var(--text);
+
+      border-radius: 13px;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      transition: 0.25s;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+
+    /* =====================================================
+       HERO CARD
+    ===================================================== */
+
+    .hero-card {
+      position: relative;
+
+      padding: 30px;
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(37,99,235,0.20),
+          var(--card)
+        );
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      background: rgba(37,99,235,0.15);
+
+      top: -70px;
+      left: -70px;
+
+      filter: blur(5px);
+    }
+
+    .hero-card-title {
+      position: relative;
+
+      font-size: 14px;
+      color: var(--text-muted);
+
+      margin-bottom: 10px;
+    }
+
+    .hero-card-main {
+      position: relative;
+
+      font-size: 36px;
+      font-weight: 900;
+
+      margin-bottom: 25px;
+    }
+
+    .milestones {
+      position: relative;
+
+      display: grid;
+      gap: 12px;
+    }
+
+    .milestone {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 15px;
+
+      border-radius: 15px;
+
+      background: rgba(255,255,255,0.035);
+
+      border: 1px solid var(--border);
+    }
+
+    .milestone-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .milestone-number {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: rgba(37,99,235,0.15);
+
+      color: var(--primary-light);
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .milestone strong {
+      font-size: 14px;
+    }
+
+    .milestone span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    .stats {
+      padding-bottom: 90px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      overflow: hidden;
+
+      background: var(--card);
+    }
+
+    .stat {
+      padding: 25px;
+
+      text-align: center;
+
+      border-left: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-left: none;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 30px;
+      font-weight: 900;
+
+      color: var(--gold);
+    }
+
+    .stat span {
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+
+      margin: 0 auto 55px;
+
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+
+      color: var(--primary-light);
+
+      font-size: 12px;
+      font-weight: 900;
+
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 44px);
+
+      line-height: 1.3;
+
+      font-weight: 900;
+
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      color: var(--text-secondary);
+
+      font-size: 15px;
+    }
+
+
+    /* =====================================================
+       LEVELS
+    ===================================================== */
+
+    .levels-grid {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 16px;
+    }
+
+    .level-card {
+      padding: 25px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      transition: 0.3s;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .level-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(37,99,235,0.45);
+
+      box-shadow: var(--shadow);
+    }
+
+    .level-number {
+      color: var(--primary-light);
+
+      font-size: 12px;
+      font-weight: 900;
+
+      margin-bottom: 12px;
+    }
+
+    .level-card h3 {
+      font-size: 21px;
+
+      margin-bottom: 7px;
+    }
+
+    .level-card p {
+      color: var(--text-muted);
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       PRICING
+    ===================================================== */
+
+    .pricing {
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(37,99,235,0.04),
+          transparent
+        );
+    }
+
+    .pricing-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 15px;
+
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 26px 20px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 21px;
+
+      transition: 0.3s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(37,99,235,0.5);
+
+      box-shadow: var(--shadow);
+    }
+
+    .price-card.featured {
+      border-color: var(--gold);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(245,196,81,0.08),
+          var(--card)
+        );
+    }
+
+    .popular {
+      position: absolute;
+
+      top: 12px;
+      left: 12px;
+
+      padding: 4px 9px;
+
+      background: var(--gold);
+
+      color: #111827;
+
+      border-radius: 20px;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .price-card h3 {
+      font-size: 16px;
+
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 32px;
+
+      font-weight: 900;
+
+      color: var(--gold);
+
+      line-height: 1.3;
+    }
+
+    .currency {
+      color: var(--text-muted);
+
+      font-size: 11px;
+    }
+
+    .price-description {
+      color: var(--text-muted);
+
+      font-size: 11px;
+
+      margin: 10px 0 20px;
+    }
+
+    .price-button {
+      margin-top: auto;
+
+      width: 100%;
+
+      padding: 11px;
+
+      border: none;
+
+      border-radius: 11px;
+
+      background: var(--primary);
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: 0.25s;
+    }
+
+    .price-button:hover {
+      background: var(--primary-light);
+
+      transform: translateY(-2px);
+    }
+
+    .pricing-note {
+      text-align: center;
+
+      margin-top: 25px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       FEATURES
+    ===================================================== */
+
+    .features-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 17px;
+    }
+
+    .feature-card {
+      padding: 28px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: var(--card);
+
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(37,99,235,0.4);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: rgba(37,99,235,0.12);
+
+      color: var(--primary-light);
+
+      font-size: 21px;
+
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+
+      font-size: 13px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =====================================================
+       HOW IT WORKS
+    ===================================================== */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .step {
+      position: relative;
+
+      padding: 25px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: var(--card);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: var(--primary);
+
+      color: white;
+
+      font-weight: 900;
+
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       TESTIMONIALS
+    ===================================================== */
+
+    .testimonials {
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(37,99,235,0.04),
+          transparent
+        );
+    }
+
+    .demo-notice {
+      max-width: 700px;
+
+      margin: -25px auto 35px;
+
+      text-align: center;
+
+      color: var(--text-muted);
+
+      font-size: 11px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .testimonial {
+      padding: 27px;
+
+      border-radius: 20px;
+
+      border: 1px solid var(--border);
+
+      background: var(--card);
+
+      transition: 0.3s;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: var(--gold);
+
+      letter-spacing: 2px;
+
+      margin-bottom: 15px;
+
+      font-size: 14px;
+    }
+
+    .testimonial p {
+      color: var(--text-secondary);
+
+      font-size: 13px;
+
+      line-height: 2;
+
+      margin-bottom: 20px;
+    }
+
+    .student {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+    .student-avatar {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          #163e9c
+        );
+
+      color: white;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .student strong {
+      display: block;
+
+      font-size: 13px;
+    }
+
+    .student span {
+      color: var(--text-muted);
+
+      font-size: 10px;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .cta {
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 55px 40px;
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1746a2,
+          #0d2452
+        );
+
+      text-align: center;
+
+      box-shadow:
+        0 30px 80px rgba(13,36,82,0.35);
+    }
+
+    .cta-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.05);
+
+      top: -150px;
+      right: -100px;
+    }
+
+    .cta-box h2 {
+      position: relative;
+
+      font-size: clamp(27px, 4vw, 43px);
+
+      color: white;
+
+      font-weight: 900;
+
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      position: relative;
+
+      color: rgba(255,255,255,0.78);
+
+      font-size: 14px;
+
+      margin-bottom: 25px;
+    }
+
+    .cta-whatsapp {
+      position: relative;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 25px;
+
+      border-radius: 12px;
+
+      background: white;
+
+      color: #1746a2;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      transition: 0.25s;
+    }
+
+    .cta-whatsapp:hover {
+      transform: translateY(-3px);
+
+      background: #f8fafc;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+
+      font-weight: 900;
+    }
+
+    .footer-brand span {
+      display: block;
+
+      color: var(--text-muted);
+
+      font-size: 10px;
+
+      font-weight: 400;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 20px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+
+    /* =====================================================
+       FLOATING WHATSAPP
+    ===================================================== */
+
+    .floating-whatsapp {
+      position: fixed;
+
+      left: 20px;
+      bottom: 20px;
+
+      width: 57px;
+      height: 57px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #25D366;
+
+      color: white;
+
+      font-size: 23px;
+
+      z-index: 900;
+
+      box-shadow:
+        0 10px 35px rgba(37,211,102,0.35);
+
+      transition: 0.25s;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-card {
+        max-width: 600px;
+
+        width: 100%;
+
+        margin: auto;
+
+        text-align: right;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .levels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    @media (max-width: 620px) {
+
+      .navbar {
+        height: 70px;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 9px 13px;
+
+        font-size: 11px;
+      }
+
+      .theme-btn {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat {
+        padding: 20px 10px;
+      }
+
+      .stat strong {
+        font-size: 24px;
+      }
+
+      .levels-grid,
+      .features-grid,
+      .steps,
+      .testimonials-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+      }
+
+      .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+
+        left: 15px;
+        bottom: 15px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ===================================================== -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="#home" class="brand">
+
+        <div class="logo">
+          CT
+        </div>
+
+        <div class="brand-text">
+          <strong>CareerTalk Academy</strong>
+          <span>طوّر لغتك الإنجليزية وابنِ مستقبلك</span>
+        </div>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="#levels">
+          المستويات
+        </a>
+
+        <a href="#pricing">
+          الأسعار
+        </a>
+
+        <a href="#features">
+          مميزاتنا
+        </a>
+
+        <a href="#how">
+          طريقة الدراسة
+        </a>
+
+        <a href="#reviews">
+          آراء الطلاب
+        </a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="theme-btn"
+          id="themeToggle"
+          aria-label="تغيير الوضع"
+          title="تغيير الوضع">
+
+          ☀️
+
+        </button>
+
+        <a
+          class="nav-cta"
+          href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20الاستفسار%20عن%20الكورسات."
+          target="_blank">
+
+          احجز الآن
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="hero-badge">
+            CareerTalk Academy
+          </div>
+
+          <h1>
+            طوّر لغتك الإنجليزية
+            <br>
+            <span>وابنِ مستقبلك</span>
+          </h1>
+
+          <p class="hero-description">
+
+            برنامج تدريبي منظم من المستوى المبتدئ حتى B2،
+            مع تركيز حقيقي على الـ Speaking والـ Listening
+            والمحادثات والمواقف العملية والاستعداد لسوق العمل.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              class="btn-primary"
+              href="#pricing">
+
+              اكتشف الباقات
+
+            </a>
+
+            <a
+              class="btn-secondary"
+              href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20معرفة%20تفاصيل%20الكورسات."
+              target="_blank">
+
+              تواصل معنا
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="hero-card-title">
+            رحلة CareerTalk
+          </div>
+
+          <div class="hero-card-main">
+            A1 → B2
+          </div>
+
+
+          <div class="milestones">
+
+            <div class="milestone">
+
+              <div class="milestone-left">
+
+                <div class="milestone-number">
+                  06
+                </div>
+
+                <div>
+                  <strong>A1</strong>
+                  <span>بعد 6 مستويات</span>
+                </div>
+
+              </div>
+
+              <span>Beginner</span>
+
+            </div>
+
+
+            <div class="milestone">
+
+              <div class="milestone-left">
+
+                <div class="milestone-number">
+                  09
+                </div>
+
+                <div>
+                  <strong>A2</strong>
+                  <span>بعد 9 مستويات</span>
+                </div>
+
+              </div>
+
+              <span>Elementary</span>
+
+            </div>
+
+
+            <div class="milestone">
+
+              <div class="milestone-left">
+
+                <div class="milestone-number">
+                  12
+                </div>
+
+                <div>
+                  <strong>B1</strong>
+                  <span>بعد 12 مستوى</span>
+                </div>
+
+              </div>
+
+              <span>Intermediate</span>
+
+            </div>
+
+
+            <div class="milestone">
+
+              <div class="milestone-left">
+
+                <div class="milestone-number">
+                  16
+                </div>
+
+                <div>
+                  <strong>B2</strong>
+                  <span>بعد 16 مستوى</span>
+                </div>
+
+              </div>
+
+              <span>Upper-Intermediate</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STATS
+    ===================================================== -->
+
+    <section class="stats">
+
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat">
+            <strong>16</strong>
+            <span>مستوى تدريبي</span>
+          </div>
+
+          <div class="stat">
+            <strong>6</strong>
+            <span>Sessions لكل مستوى</span>
+          </div>
+
+          <div class="stat">
+            <strong>2</strong>
+            <span>محاضرتان أسبوعيًا</span>
+          </div>
+
+          <div class="stat">
+            <strong>4–5</strong>
+            <span>طلاب في المجموعة</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LEVELS
+    ===================================================== -->
+
+    <section class="section" id="levels">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            LEARNING PATH
+          </div>
+
+          <h2 class="section-title">
+            رحلة واضحة من A1 إلى B2
+          </h2>
+
+          <p class="section-description">
+
+            الكورس بتاعنا مكوّن من 16 مستوى،
+            وكل مستوى مصمم بحيث يساعدك تتطور خطوة بخطوة
+            بدل ما تذاكر بشكل عشوائي.
+
+          </p>
+
+        </div>
+
+
+        <div class="levels-grid">
+
+          <div class="level-card">
+
+            <div class="level-number">
+              LEVELS 01–06
+            </div>
+
+            <h3>A1</h3>
+
+            <p>
+              بناء الأساسيات وفهم الجمل والمحادثات اليومية.
+            </p>
+
+          </div>
+
+
+          <div class="level-card">
+
+            <div class="level-number">
+              LEVELS 07–09
+            </div>
+
+            <h3>A2</h3>
+
+            <p>
+              توسيع المفردات وتحسين التواصل في المواقف اليومية.
+            </p>
+
+          </div>
+
+
+          <div class="level-card">
+
+            <div class="level-number">
+              LEVELS 10–12
+            </div>
+
+            <h3>B1</h3>
+
+            <p>
+              تطوير الطلاقة والمحادثة والاستعداد لمواقف العمل.
+            </p>
+
+          </div>
+
+
+          <div class="level-card">
+
+            <div class="level-number">
+              LEVELS 13–16
+            </div>
+
+            <h3>B2</h3>
+
+            <p>
+              مستوى أعلى من الطلاقة والفهم والتواصل المهني.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRICING
+    ===================================================== -->
+
+    <section class="section pricing" id="pricing">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            PRICING
+          </div>
+
+          <h2 class="section-title">
+            اختار الباقة المناسبة ليك
+          </h2>
+
+          <p class="section-description">
+
+            اضغط على أي باقة وسيتم تحويلك مباشرة إلى WhatsApp
+            برسالة جاهزة تحتوي على الباقة التي اخترتها.
+
+          </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+          <!-- 1 LEVEL -->
+
+          <div class="price-card">
+
+            <h3>
+              مستوى واحد
+            </h3>
+
+            <div class="price">
+              1000
+              <span class="currency">جنيه</span>
+            </div>
+
+            <p class="price-description">
+              6 Sessions
+            </p>
+
+            <button
+              class="price-button"
+              onclick="bookPackage('مستوى واحد', '1000 جنيه')">
+
+              احجز الباقة
+
+            </button>
+
+          </div>
+
+
+          <!-- 4 LEVELS -->
+
+          <div class="price-card">
+
+            <h3>
+              4 مستويات
+            </h3>
+
+            <div class="price">
+              2400
+              <span class="currency">جنيه</span>
+            </div>
+
+            <p class="price-description">
+              24 Sessions
+            </p>
+
+            <button
+              class="price-button"
+              onclick="bookPackage('4 مستويات', '2400 جنيه')">
+
+              احجز الباقة
+
+            </button>
+
+          </div>
+
+
+          <!-- 6 LEVELS -->
+
+          <div class="price-card">
+
+            <h3>
+              6 مستويات
+            </h3>
+
+            <div class="price">
+              3000
+              <span class="currency">جنيه</span>
+            </div>
+
+            <p class="price-description">
+              36 Sessions
+            </p>
+
+            <button
+              class="price-button"
+              onclick="bookPackage('6 مستويات', '3000 جنيه')">
+
+              احجز الباقة
+
+            </button>
+
+          </div>
+
+
+          <!-- 10 LEVELS -->
+
+          <div class="price-card featured">
+
+            <div class="popular">
+              الأكثر طلبًا
+            </div>
+
+            <h3>
+              10 مستويات
+            </h3>
+
+            <div class="price">
+              3500
+              <span class="currency">جنيه</span>
+            </div>
+
+            <p class="price-description">
+              60 Sessions
+            </p>
+
+            <button
+              class="price-button"
+              onclick="bookPackage('10 مستويات', '3500 جنيه')">
+
+              احجز الباقة
+
+            </button>
+
+          </div>
+
+
+          <!-- 16 LEVELS -->
+
+          <div class="price-card">
+
+            <h3>
+              16 مستوى
+            </h3>
+
+            <div class="price">
+              3200
+              <span class="currency">جنيه</span>
+            </div>
+
+            <p class="price-description">
+              رحلة كاملة حتى B2
+            </p>
+
+            <button
+              class="price-button"
+              onclick="bookPackage('16 مستوى', '3200 جنيه')">
+
+              احجز الباقة
+
+            </button>
+
+          </div>
+
+
+        </div>
+
+
+        <p class="pricing-note">
+          جميع الأسعار الموضحة هي الأسعار النهائية بدون رسوم تسجيل إضافية.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURES
+    ===================================================== -->
+
+    <section class="section" id="features">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            WHY CAREERTALK
+          </div>
+
+          <h2 class="section-title">
+            مش مجرد كورس Grammar
+          </h2>
+
+          <p class="section-description">
+
+            هدفنا إنك تعرف تستخدم الإنجليزي فعليًا،
+            مش بس تحفظ قواعد وكلمات.
+
+          </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              S
+            </div>
+
+            <h3>
+              Speaking
+            </h3>
+
+            <p>
+              هتتكلم باستمرار أثناء المحاضرات
+              وتتدرب على تكوين الجمل والتعبير عن أفكارك.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              L
+            </div>
+
+            <h3>
+              Listening
+            </h3>
+
+            <p>
+              تدريب على فهم الكلام الطبيعي
+              والمحادثات والمواقف المختلفة.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              C
+            </div>
+
+            <h3>
+              Real Conversations
+            </h3>
+
+            <p>
+              محادثات ومواقف قريبة من الحياة اليومية
+              وسوق العمل.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              I
+            </div>
+
+            <h3>
+              Interview Preparation
+            </h3>
+
+            <p>
+              تدريب على الأسئلة الشائعة في مقابلات العمل
+              وتحسين طريقة الإجابة.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              R
+            </div>
+
+            <h3>
+              Role Play
+            </h3>
+
+            <p>
+              تمثيل مواقف عملية تساعدك تتعامل مع
+              السيناريوهات المختلفة بثقة.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              5
+            </div>
+
+            <h3>
+              Small Groups
+            </h3>
+
+            <p>
+              مجموعات صغيرة من 4 إلى 5 طلاب
+              للحصول على وقت أكبر للممارسة.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ===================================================== -->
+
+    <section class="section" id="how">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            HOW IT WORKS
+          </div>
+
+          <h2 class="section-title">
+            الدراسة مع CareerTalk
+          </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+
+          <div class="step">
+
+            <div class="step-number">
+              01
+            </div>
+
+            <h3>
+              اختار الباقة
+            </h3>
+
+            <p>
+              اختار عدد المستويات المناسب لهدفك.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              02
+            </div>
+
+            <h3>
+              تواصل معنا
+            </h3>
+
+            <p>
+              اضغط على الباقة وسيتم تحويلك مباشرة إلى WhatsApp.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              03
+            </div>
+
+            <h3>
+              ابدأ الدراسة
+            </h3>
+
+            <p>
+              تنضم للمجموعة وتبدأ التدريب مع المدرّب.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              04
+            </div>
+
+            <h3>
+              طوّر مستواك
+            </h3>
+
+            <p>
+              تتقدم تدريجيًا من مستوى إلى المستوى التالي.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TESTIMONIALS
+    ===================================================== -->
+
+    <section class="section testimonials" id="reviews">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            STUDENT REVIEWS
+          </div>
+
+          <h2 class="section-title">
+            آراء طلابنا
+          </h2>
+
+          <p class="section-description">
+            تجارب الطلاب هي أهم دليل على جودة التدريب.
+          </p>
+
+        </div>
+
+
+        <p class="demo-notice">
+          ملاحظة: الأسماء والآراء التالية نماذج تجريبية للتصميم.
+          استبدلها بآراء طلاب CareerTalk الحقيقية قبل نشر الموقع.
+        </p>
+
+
+        <div class="testimonials-grid">
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: حسيت إن المحاضرات بتخليني أتكلم
+              أكتر بدل ما أفضل أذاكر Grammar بس."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                أ
+              </div>
+
+              <div>
+                <strong>
+                  أحمد محمد
+                </strong>
+
+                <span>
+                  طالب تجريبي
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: أكتر حاجة عجبتني إن التدريب كان
+              قائم على المحادثة والمواقف العملية."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                س
+              </div>
+
+              <div>
+                <strong>
+                  سارة علي
+                </strong>
+
+                <span>
+                  طالبة تجريبية
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: المجموعة الصغيرة خلت عندي فرصة
+              أكبر إني أتكلم وأتدرب."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                م
+              </div>
+
+              <div>
+                <strong>
+                  محمد خالد
+                </strong>
+
+                <span>
+                  طالب تجريبي
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: بدأت أفهم الكلام بشكل أفضل
+              وبقيت أقدر أكون جمل أسرع."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                ن
+              </div>
+
+              <div>
+                <strong>
+                  نور أحمد
+                </strong>
+
+                <span>
+                  طالبة تجريبية
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: طريقة التدريب مناسبة جدًا
+              لأي شخص هدفه يشتغل ويحتاج English عملي."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                ع
+              </div>
+
+              <div>
+                <strong>
+                  عمر محمود
+                </strong>
+
+                <span>
+                  طالب تجريبي
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="testimonial">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <p>
+              "نموذج تجريبي: حسيت إن عندي خطة واضحة
+              بدل ما أذاكر الإنجليزي بشكل عشوائي."
+            </p>
+
+            <div class="student">
+
+              <div class="student-avatar">
+                ر
+              </div>
+
+              <div>
+                <strong>
+                  ريم حسن
+                </strong>
+
+                <span>
+                  طالبة تجريبية
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ===================================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>
+            جاهز تبدأ رحلتك؟
+          </h2>
+
+          <p>
+            اختار الباقة المناسبة ليك وتواصل معنا مباشرة.
+          </p>
+
+          <a
+            class="cta-whatsapp"
+            href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20الاشتراك%20في%20أحد%20الكورسات."
+            target="_blank">
+
+            تواصل معنا عبر WhatsApp
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <div class="footer-brand">
+
+        CareerTalk Academy
+
+        <span>
+          طوّر لغتك الإنجليزية وابنِ مستقبلك
+        </span>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          href="https://wa.me/201095126158"
+          target="_blank">
+
+          WhatsApp
+
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/14oYpD7UNM2/"
+          target="_blank">
+
+          Facebook
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       FLOATING WHATSAPP
+  ===================================================== -->
+
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20معرفة%20تفاصيل%20الكورسات."
+    target="_blank"
+    aria-label="WhatsApp">
+
+    ☎
+
+  </a>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       WHATSAPP PACKAGE BOOKING
+    ===================================================== */
+
+    function bookPackage(packageName, price) {
+
+      const phone = "201095126158";
+
+      const message =
+        `السلام عليكم CareerTalk Academy،%0A%0A` +
+        `أنا مهتم بباقة: ${packageName}%0A` +
+        `السعر: ${price}%0A%0A` +
+        `وأرغب في معرفة التفاصيل والحجز.`;
+
+      const whatsappURL =
+        `https://wa.me/${phone}?text=${message}`;
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    }
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+    ===================================================== */
+
+    const body =
+      document.body;
+
+    const themeButton =
+      document.getElementById(
+        "themeToggle"
+      );
+
+
+    function updateThemeButton() {
+
+      const isLight =
+        body.classList.contains("light");
+
+      if (isLight) {
+
+        themeButton.textContent = "🌙";
+
+        themeButton.setAttribute(
+          "title",
+          "تفعيل الوضع الليلي"
+        );
+
+        themeButton.setAttribute(
+          "aria-label",
+          "تفعيل الوضع الليلي"
+        );
+
+      } else {
+
+        themeButton.textContent = "☀️";
+
+        themeButton.setAttribute(
+          "title",
+          "تفعيل الوضع النهاري"
+        );
+
+        themeButton.setAttribute(
+          "aria-label",
+          "تفعيل الوضع النهاري"
+        );
+
+      }
+
+    }
+
+
+    themeButton.addEventListener(
+      "click",
+      function() {
+
+        body.classList.toggle("light");
+
+        const currentTheme =
+          body.classList.contains("light")
+            ? "light"
+            : "dark";
+
+        localStorage.setItem(
+          "careertalk-theme",
+          currentTheme
+        );
+
+        updateThemeButton();
+
+      }
+    );
+
+
+    /* =====================================================
+       LOAD SAVED THEME
+    ===================================================== */
+
+    const savedTheme =
+      localStorage.getItem(
+        "careertalk-theme"
+      );
+
+
+    if (savedTheme === "light") {
+
+      body.classList.add("light");
+
+    }
+
+
+    updateThemeButton();
+
+
+    /* =====================================================
+       SMOOTH NAVIGATION
+    ===================================================== */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(function(link) {
+
+        link.addEventListener(
+          "click",
+          function(event) {
+
+            const target =
+              document.querySelector(
+                this.getAttribute("href")
+              );
+
+            if (target) {
+
+              event.preventDefault();
+
+              target.scrollIntoView({
+                behavior: "smooth"
+              });
+
+            }
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
 font-family:inherit;
 
 }
