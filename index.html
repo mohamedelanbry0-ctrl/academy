@@ -1,599 +1,525 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapway | ماب واي — إعلانات ممولة ودراسة صفحات تزيد مبيعاتك</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapway</title>
+<link rel="icon" href="logo.png">
 
-    <!-- خطوط عربية مريحة للعين: Tajawal للعناوين و IBM Plex Sans Arabic للنصوص -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F6FB}
+a{color:inherit;text-decoration:none}
+.h1{font-family:'Cairo','Tajawal',sans-serif;font-weight:900;font-size:62px;line-height:1.3;margin:0;text-wrap:balance}
+.h2{font-family:'Cairo','Tajawal',sans-serif;font-weight:800;font-size:40px;line-height:1.4;margin:0;text-wrap:balance}
+.h3{font-family:'Cairo','Tajawal',sans-serif;font-weight:700;font-size:21px;line-height:1.5;margin:0}
+.btn{transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(22,49,58,.18)}
+.lift{transition:transform .3s ease,box-shadow .3s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(22,49,58,.12)}
+.navlink{transition:color .2s ease}
+.navlink:hover{color:#2A6BD1}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}.d5{animation-delay:.65s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+.floaty2{animation:floaty 7.5s ease-in-out infinite reverse}
+@keyframes pulse{0%{transform:scale(.3);opacity:.55}100%{transform:scale(1.6);opacity:0}}
+.ring{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}
+.ring2{animation-delay:1.4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.bob{animation:bob 3s ease-in-out infinite}
+.bob2{animation:bob 3.6s ease-in-out infinite;animation-delay:-1.2s}
+@keyframes dash{to{stroke-dashoffset:-44}}
+.flow{stroke-dasharray:10 12;animation:dash 1.6s linear infinite}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.marq{animation:marq 45s linear infinite}
+@keyframes grow{from{transform:scaleY(.5)}to{transform:scaleY(1)}}
+.grow{transform-origin:bottom;animation:grow 2.6s ease-in-out infinite alternate}
+.rw{opacity:0;animation:rw 9s ease-in-out infinite}
+@keyframes rw{0%{opacity:0;transform:translateY(14px)}5%,28%{opacity:1;transform:none}33%,100%{opacity:0;transform:translateY(-14px)}}
+.rw1{animation-delay:-1s}.rw2{animation-delay:-7s}.rw3{animation-delay:-4s}
+@media (max-width:760px){.h1{font-size:38px}.h2{font-size:29px}.navlinks{display:none}.routeline{display:none}}
+@media (prefers-reduced-motion:reduce){.rise,.floaty,.floaty2,.ring,.bob,.bob2,.flow,.marq,.grow,.rw{animation:none}.rw2,.rw3{display:none}.rw1{opacity:1}.btn,.lift{transition:none}}
+</style>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        /* ألوان متناسقة مع شعار Mapway مع خلفية فاتحة مريحة للعين */
-                        canvas: '#F6F8FC',
-                        mist: '#EEF3FA',
-                        ink: '#112240',
-                        inksoft: '#33486B',
-                        skyway: {
-                            400: '#60A5FA',
-                            500: '#3B82F6',
-                            600: '#2563EB',
-                            700: '#1D4ED8',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['IBM Plex Sans Arabic', 'sans-serif'],
-                        heading: ['Tajawal', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* إعدادات أساسية مريحة للعين وتمنع التمرير الأفقي */
-        body {
-            background-color: #F5F8FC;
-            color: #0B1B3B;
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        /* حركة ظهور ناعمة عند التمرير */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.12s; }
-        .reveal-delay-2 { transition-delay: 0.24s; }
-
-        /* حركة طافية خفيفة للبطاقات والعناصر */
-        @keyframes floatGentle {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-7px); }
-        }
-
-        .animate-float {
-            animation: floatGentle 5.5s ease-in-out infinite;
-        }
-
-        /* شريط تمرير ناعم */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #EEF3FA;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #B8C7DE;
-            border-radius: 999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1E6BF1;
-        }
-    </style>
 </head>
-<body class="antialiased selection:bg-skyway-600 selection:text-white">
+<body>
 
-    <!-- شريط التنقل العلوي البسيط -->
-    <header id="navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-            <!-- شعار Mapway بتصميم متناسق مع الهوية البصرية المرفقة -->
-            <a href="#" class="flex items-center gap-2.5 group shrink-0">
-                <div class="relative flex items-center select-none">
-                    <!-- سهم صاعد يرمز للنمو والوصول -->
-                    <svg class="w-5 h-5 text-[#1E6BF1] -ml-1 mb-5 transition-transform duration-300 group-hover:-translate-y-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 3L4 12h5v9h6v-9h5L12 3z"/>
-                    </svg>
-                    <span class="font-heading font-black text-2xl sm:text-[28px] tracking-tight leading-none">
-                        <span class="text-[#0B1B3B]">Map</span><span class="bg-gradient-to-r from-[#2B82F6] to-[#1E6BF1] bg-clip-text text-transparent">way</span>
-                    </span>
-                </div>
-                <span class="hidden sm:inline-block text-xs text-inksoft border-r border-slate-200 pr-2.5 font-medium">
-                    إعلانات ممولة ونمو مبيعات
-                </span>
-            </a>
 
-            <!-- روابط الأقسام -->
-            <nav class="hidden md:flex items-center gap-7 text-[15px] font-medium text-inksoft">
-                <a href="#paid-ads-importance" class="hover:text-skyway-600 transition-colors">أهمية الإعلان الممول</a>
-                <a href="#why-targeting" class="hover:text-skyway-600 transition-colors">استهداف الجمهور الصح</a>
-                <a href="#our-method" class="hover:text-skyway-600 transition-colors">دراسة وتطوير الصفحة</a>
-                <a href="#results" class="hover:text-skyway-600 transition-colors">نتائج عملائنا</a>
-            </nav>
+<div style="background:#F3F6FB;color:#132342;font-family:'Tajawal','Cairo',sans-serif;font-size:18px;line-height:1.9;overflow-x:hidden">
 
-            <!-- زر صفحة فيسبوك فقط -->
-            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-sm px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                <i data-lucide="facebook" class="w-4 h-4 fill-current"></i>
-                <span>صفحتنا على فيسبوك</span>
-            </a>
-        </div>
-    </header>
+<!-- HERO -->
+<section style="background:#F3F6FB">
+<header style="max-width:1200px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<a href="#top" style="display:flex;align-items:center;gap:12px" aria-label="Mapway">
+<span dir="ltr" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:32px;line-height:1;color:#2A6BD1">Mapway</span>
+</a>
+<nav class="navlinks" style="display:flex;gap:30px;font-weight:500;font-size:17px">
+<a class="navlink" href="#sponsored">الإعلان الممول</a>
+<a class="navlink" href="#why">لماذا الاستهداف</a>
+<a class="navlink" href="#study">دراسة صفحتك</a>
+<a class="navlink" href="#process">كيف نعمل</a>
+<a class="navlink" href="#services">خدماتنا</a>
+<a class="navlink" href="#reach">الوصول</a>
+</nav>
+<a class="btn" href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener" style="background:#2A6BD1;color:#FFFFFF;font-weight:700;font-size:16px;line-height:1;padding:14px 22px;border-radius:999px">صفحتنا على فيسبوك</a>
+</header>
 
-    <!-- غلاف افتتاحي وصدر الصفحة الرئيسي -->
-    <section class="pt-6 pb-16 sm:pt-8 sm:pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <!-- صورة غلاف متناسبة الأبعاد في بداية الموقع -->
-            <div class="relative w-full h-[260px] sm:h-[360px] lg:h-[420px] rounded-[2rem] overflow-hidden border border-slate-200/90 shadow-md reveal active">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
-                     alt="غلاف Mapway لإدارة الإعلانات الممولة وتطوير الصفحات لزيادة المبيعات"
-                     class="w-full h-full object-cover object-center"
-                     onerror="this.onerror=null;this.src='https://placehold.co/1400x450/0B1B3B/FFFFFF?text=Mapway';">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1B3B]/90 via-[#0B1B3B]/45 to-transparent flex items-end">
-                    <div class="p-6 sm:p-10 w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
-                        <div class="space-y-1.5 max-w-2xl">
-                            <span class="inline-block px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs sm:text-sm font-heading font-bold text-blue-100">
-                                Mapway • فيسبوك وإنستجرام • مصر وجميع أنحاء العالم
-                            </span>
-                            <p class="font-heading font-extrabold text-xl sm:text-3xl leading-snug">
-                                بنساعد أصحاب البيزنس يوصلوا للعميل المناسب ويزودوا مبيعاتهم بخطوات واضحة
-                            </p>
-                        </div>
-                        <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center gap-2 bg-[#1E6BF1] hover:bg-[#2B82F6] text-white font-heading font-bold text-sm sm:text-base px-5 py-3 rounded-xl shadow-lg transition-colors shrink-0">
-                            <i data-lucide="facebook" class="w-4 h-4 fill-current"></i>
-                            <span>تواصل عبر صفحتنا</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div id="top" style="max-width:1200px;margin:0 auto;padding:40px 24px 90px;display:flex;flex-wrap:wrap;align-items:center;gap:56px">
+<div style="flex:1 1 480px;min-width:0">
+<div class="rise d1" style="display:inline-flex;align-items:center;gap:10px;background:#DCE8FA;color:#1B4A9E;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">
+<span style="width:9px;height:9px;border-radius:50%;background:#E8684A;display:block"></span>
+إعلانات ممولة على فيسبوك وإنستجرام
+</div>
+<h1 class="h1 rise d2" style="margin-top:22px">
+<span style="display:block">إعلانك يستحق أن يصل إلى</span>
+<span style="display:inline-grid;color:#2A6BD1">
+<span class="rw rw1" style="grid-area:1/1;white-space:nowrap">الشخص المناسب</span>
+<span class="rw rw2" style="grid-area:1/1;white-space:nowrap">كل مكان في مصر</span>
+<span class="rw rw3" style="grid-area:1/1;white-space:nowrap">عملاء حول العالم</span>
+</span>
+</h1>
+<p class="rise d3" style="margin:24px 0 0;max-width:560px;color:#44587A;font-size:19px">نحن في Mapway ندير حملاتك الإعلانية على فيسبوك وإنستجرام، ونحدد الجمهور الأنسب لنشاطك، حتى تزيد مبيعاتك ويصل اسمك إلى كل أنحاء مصر والعالم.</p>
+<div class="rise d4" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px">
+<a class="btn" href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener" style="background:#2A6BD1;color:#FFFFFF;font-weight:700;font-size:17px;line-height:1;padding:18px 28px;border-radius:999px">تابع صفحتنا على فيسبوك</a>
+<a class="btn" href="#process" style="background:#FFFFFF;color:#132342;font-weight:700;font-size:17px;line-height:1;padding:18px 28px;border-radius:999px;border:2px solid #CCD9F0">شاهد كيف نعمل</a>
+</div>
+<div class="rise d5" style="margin-top:28px;display:flex;align-items:center;gap:10px;color:#44587A;font-size:16px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6BD1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+قبل أي إعلان، ندرس صفحتك أولاً
+</div>
+</div>
 
-            <!-- بطاقة الشرح الرئيسية -->
-            <div class="bg-white rounded-[2rem] border border-slate-200/90 shadow-sm overflow-hidden">
-                <div class="grid lg:grid-cols-12 items-center">
-                    <!-- النص الافتتاحي -->
-                    <div class="lg:col-span-7 p-7 sm:p-10 lg:p-14 space-y-6 reveal active">
-                        <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-[#0B1B3B] leading-[1.25]">
-                            إعلانات ممولة على فيسبوك وإنستجرام <span class="bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] bg-clip-text text-transparent">تزود مبيعاتك</span> وتوصلك للجمهور الصح
-                        </h1>
+<div class="rise d3" style="flex:1 1 440px;min-width:0;max-width:580px;margin:0 auto;position:relative">
+<svg viewBox="0 0 560 520" style="width:100%;height:auto;display:block" role="img" aria-label="خريطة يظهر عليها مسار إعلان يمر بعدة مواقع حتى يصل إلى العملاء">
+<defs><clipPath id="mapclip"><rect x="0" y="0" width="560" height="520" rx="40"/></clipPath></defs>
+<g clip-path="url(#mapclip)">
+<rect width="560" height="520" fill="#DCE8F8"/>
+<path d="M0 392 C80 346 150 430 240 404 C330 380 340 474 430 484 L430 520 L0 520Z" fill="#BFE3F2"/>
+<rect x="372" y="56" width="150" height="112" rx="28" fill="#CFE8C6"/>
+<rect x="36" y="66" width="124" height="92" rx="26" fill="#CFE8C6"/>
+<rect x="206" y="44" width="124" height="86" rx="20" fill="#F6EBD3"/>
+<rect x="390" y="232" width="140" height="92" rx="20" fill="#F6EBD3"/>
+<rect x="52" y="214" width="112" height="100" rx="20" fill="#E9E4F6"/>
+<g stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round">
+<path d="M-10 192 C120 172 220 224 330 192 S520 152 580 172"/>
+<path d="M180 -10 C204 120 160 252 210 362 S262 470 250 540"/>
+<path d="M356 -10 C344 110 374 200 348 300 S332 420 362 540"/>
+</g>
+<g stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round"><path d="M-10 304 L580 332"/><path d="M-10 104 L580 112"/></g>
+<path class="flow" d="M92 424 C160 330 238 384 270 292 S338 200 432 132" fill="none" stroke="#E8684A" stroke-width="5" stroke-linecap="round"/>
+</g>
+<g transform="translate(92 424)"><circle class="ring" r="26" fill="#2A6BD1"/><circle class="ring ring2" r="26" fill="#2A6BD1"/><g class="bob"><path d="M0 0C-14-18-20-28-20-38a20 20 0 1 1 40 0c0 10-6 20-20 38z" fill="#2A6BD1"/><circle cx="0" cy="-38" r="8" fill="#FFFFFF"/></g></g>
+<g transform="translate(270 292)"><circle class="ring" r="26" fill="#E8684A"/><circle class="ring ring2" r="26" fill="#E8684A"/><g class="bob2"><path d="M0 0C-14-18-20-28-20-38a20 20 0 1 1 40 0c0 10-6 20-20 38z" fill="#E8684A"/><circle cx="0" cy="-38" r="8" fill="#FFFFFF"/></g></g>
+<g transform="translate(432 132)"><circle class="ring" r="26" fill="#7B5BD6"/><circle class="ring ring2" r="26" fill="#7B5BD6"/><g class="bob"><path d="M0 0C-14-18-20-28-20-38a20 20 0 1 1 40 0c0 10-6 20-20 38z" fill="#7B5BD6"/><circle cx="0" cy="-38" r="8" fill="#FFFFFF"/></g></g>
+<g transform="translate(170 196)"><circle class="ring" r="22" fill="#F4B942"/><g class="bob2"><path d="M0 0C-12-15-17-24-17-32a17 17 0 1 1 34 0c0 8-5 17-17 32z" fill="#F4B942"/><circle cx="0" cy="-32" r="6.5" fill="#FFFFFF"/></g></g>
+</svg>
 
-                        <p class="text-base sm:text-lg text-inksoft leading-relaxed">
-                            في <strong>Mapway</strong> نساعد أصحاب المشاريع والبراندات على الوصول للناس المناسبة فعلاً وزيادة المبيعات في كل محافظات مصر ومختلف دول العالم. إحنا مش بنعمل إعلان وخلاص؛ إحنا بندرس صفحتك الأول، وبنحط خطة تخلي صفحتك جذابة وتشد ناس كتير، وبعدها بنطلق إعلانات ممولة تساعدك تحقق التارجت زي عملاء كتير اشتغلوا معانا وحققوه.
-                        </p>
+<div class="floaty" style="position:absolute;top:-16px;left:4%;width:206px;background:#FFFFFF;border-radius:20px;padding:12px;box-shadow:0 16px 34px rgba(22,49,58,.14)">
+<div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;border-radius:50%;background:#2A6BD1"></div><div style="line-height:1.3"><div style="font-weight:700;font-size:13px" dir="ltr">Mapway</div><div style="color:#44587A;font-size:11px">إعلان ممول</div></div></div>
+<div style="height:78px;border-radius:12px;margin-top:10px;background:#FDF0CC;overflow:hidden">
+<svg viewBox="0 0 160 78" style="width:100%;height:100%;display:block" aria-hidden="true"><circle cx="124" cy="24" r="26" fill="#F4B942"/><path d="M62 30h36l5 46H57z" fill="#E8684A"/><path d="M71 30c0-12 18-12 18 0" stroke="#132342" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+</div>
+<div style="font-weight:700;font-size:14px;margin-top:8px;line-height:1.5">عرض خاص هذا الأسبوع</div>
+<div style="margin-top:6px;display:inline-block;background:#2A6BD1;color:#FFFFFF;font-size:12px;font-weight:700;line-height:1;padding:7px 12px;border-radius:999px">تسوق الآن</div>
+</div>
 
-                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
-                            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
-                               class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-base sm:text-lg px-7 py-3.5 rounded-xl shadow-md shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
-                                <i data-lucide="facebook" class="w-5 h-5 fill-current"></i>
-                                <span>راسلنا عبر صفحة فيسبوك</span>
-                                <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                            </a>
+<div class="floaty2" style="position:absolute;bottom:26px;right:-6px;background:#FFFFFF;border-radius:999px;padding:9px 18px 9px 12px;box-shadow:0 16px 34px rgba(22,49,58,.14);display:flex;align-items:center;gap:12px">
+<div dir="ltr" style="display:flex"><div style="width:28px;height:28px;border-radius:50%;background:#2A6BD1;border:2px solid #FFFFFF"></div><div style="width:28px;height:28px;border-radius:50%;background:#E8684A;border:2px solid #FFFFFF;margin-left:-9px"></div><div style="width:28px;height:28px;border-radius:50%;background:#F4B942;border:2px solid #FFFFFF;margin-left:-9px"></div><div style="width:28px;height:28px;border-radius:50%;background:#7B5BD6;border:2px solid #FFFFFF;margin-left:-9px"></div></div>
+<span style="font-weight:700;font-size:14px;line-height:1.3">جمهور مناسب لنشاطك</span>
+</div>
 
-                            <a href="#paid-ads-importance"
-                               class="inline-flex items-center justify-center gap-2 bg-mist hover:bg-slate-200/70 text-[#0B1B3B] font-heading font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-colors">
-                                <span>تعرف على أهمية الإعلان الممول</span>
-                            </a>
-                        </div>
+<div class="floaty" style="position:absolute;top:44%;left:6px;background:#FFFFFF;border-radius:20px;padding:12px 16px;box-shadow:0 16px 34px rgba(22,49,58,.14);display:flex;align-items:flex-end;gap:12px">
+<div dir="ltr" style="display:flex;align-items:flex-end;gap:5px;height:44px">
+<div class="grow" style="width:9px;height:16px;border-radius:4px;background:#BCD3F6"></div>
+<div class="grow" style="width:9px;height:26px;border-radius:4px;background:#8FB2EE;animation-delay:-.6s"></div>
+<div class="grow" style="width:9px;height:36px;border-radius:4px;background:#5C8FE6;animation-delay:-1.2s"></div>
+<div class="grow" style="width:9px;height:44px;border-radius:4px;background:#2A6BD1;animation-delay:-1.8s"></div>
+</div>
+<div style="line-height:1.4"><div style="font-size:12px;color:#44587A">مع الاستهداف</div><div style="font-weight:800;font-size:15px;font-family:'Cairo',sans-serif">مبيعات أكثر</div></div>
+</div>
+</div>
+</div>
+</section>
 
-                        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-inksoft">
-                            <span class="inline-flex items-center gap-1.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
-                                دراسة الصفحة ووضع خطة جاذبية
-                            </span>
-                            <span class="inline-flex items-center gap-1.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
-                                استهداف الجمهور المناسب لزيادة البيع
-                            </span>
-                            <span class="inline-flex items-center gap-1.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
-                                تغطية مصر وجميع أنحاء العالم
-                            </span>
-                        </div>
-                    </div>
+<!-- MARQUEE -->
+<section style="background:#FDF0CC;overflow:hidden;padding:18px 0" aria-hidden="true">
+<div class="marq" style="display:flex;width:max-content">
+<div style="display:flex;align-items:center;gap:44px;padding:0 22px;font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;white-space:nowrap">
+<span>إعلانات فيسبوك</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>إعلانات إنستجرام</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+<span>استهداف دقيق للجمهور</span><span style="width:10px;height:10px;border-radius:50%;background:#7B5BD6"></span>
+<span>دراسة صفحتك</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>خطط لجذب العملاء</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+<span>الوصول لكل أنحاء مصر</span><span style="width:10px;height:10px;border-radius:50%;background:#7B5BD6"></span>
+<span>عملاء من حول العالم</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>مبيعات أكثر</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+</div>
+<div style="display:flex;align-items:center;gap:44px;padding:0 22px;font-family:'Cairo',sans-serif;font-weight:700;font-size:19px;white-space:nowrap">
+<span>إعلانات فيسبوك</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>إعلانات إنستجرام</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+<span>استهداف دقيق للجمهور</span><span style="width:10px;height:10px;border-radius:50%;background:#7B5BD6"></span>
+<span>دراسة صفحتك</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>خطط لجذب العملاء</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+<span>الوصول لكل أنحاء مصر</span><span style="width:10px;height:10px;border-radius:50%;background:#7B5BD6"></span>
+<span>عملاء من حول العالم</span><span style="width:10px;height:10px;border-radius:50%;background:#2A6BD1"></span>
+<span>مبيعات أكثر</span><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>
+</div>
+</div>
+</section>
 
-                    <!-- صورة توضيحية مرافقة للشرح الرئيسي -->
-                    <div class="lg:col-span-5 relative p-4 sm:p-6 bg-mist/60 h-full flex items-center">
-                        <div class="relative w-full rounded-3xl overflow-hidden shadow-md border border-white">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
-                                 alt="متابعة الحملات الإعلانية وتطوير الصفحات في Mapway"
-                                 class="w-full h-[330px] sm:h-[400px] lg:h-[430px] object-cover"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/800x600/EEF3FA/0B1B3B?text=Mapway';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0B1B3B]/75 via-transparent to-transparent flex items-end p-5">
-                                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-3.5 w-full flex items-center gap-3 shadow-sm animate-float">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1E6BF1] to-[#2B82F6] text-white flex items-center justify-center shrink-0">
-                                        <i data-lucide="trending-up" class="w-5 h-5"></i>
-                                    </div>
-                                    <div>
-                                        <p class="font-heading font-bold text-[#0B1B3B] text-sm">نساعدك تقفل التارجت وتكبر مبيعاتك</p>
-                                        <p class="text-xs text-inksoft">على فيسبوك وإنستجرام في مصر والعالم</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SPONSORED ADS -->
+<section id="sponsored" style="background:#FFFFFF">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:56px">
+<div style="flex:1 1 440px;min-width:0">
+<div style="display:inline-block;background:#FDF0CC;color:#6B4A00;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">أهمية الإعلان الممول</div>
+<h2 class="h2" style="margin-top:18px">المنشور العادي وحده لا يكفي ليصل إلى من لا يعرفك</h2>
+<p style="margin:18px 0 0;color:#44587A">ما تنشره على صفحتك يراه في الغالب جزء من متابعيك فقط، وأنت لا تتحكم في من يراه ولا في وقت ظهوره. الإعلان الممول يفتح لك باباً أوسع على فيسبوك وإنستجرام.</p>
+<p style="margin:14px 0 0;color:#44587A">يمنحك وصولاً إلى أشخاص لم يسمعوا عنك بعد، وتحكماً في من يرى رسالتك، ونتائج تستطيع قياسها وتحسينها حملة بعد حملة.</p>
+</div>
+<div style="flex:1 1 400px;min-width:0;max-width:500px;margin:0 auto;position:relative">
+<svg viewBox="0 0 480 400" style="width:100%;height:auto;display:block" role="img" aria-label="دائرة صغيرة هي متابعوك الحاليون، تحيط بها دوائر أكبر تمثل الجمهور الجديد الذي يصل إليه الإعلان الممول">
+<circle cx="240" cy="200" r="176" fill="#E9F0FB"/>
+<circle cx="240" cy="200" r="116" fill="#DCE8FA"/>
+<circle cx="240" cy="200" r="60" fill="#2A6BD1"/>
+<circle class="ring" cx="240" cy="200" r="100" fill="none" stroke="#2A6BD1" stroke-width="4"/>
+<circle class="ring ring2" cx="240" cy="200" r="100" fill="none" stroke="#2A6BD1" stroke-width="4"/>
+<text x="240" y="207" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="19" fill="#FFFFFF">متابعوك</text>
+<g class="bob"><circle cx="110" cy="120" r="10" fill="#F4B942"/><circle cx="392" cy="272" r="10" fill="#F4B942"/></g>
+<g class="bob2"><circle cx="372" cy="112" r="10" fill="#E8684A"/><circle cx="96" cy="262" r="10" fill="#E8684A"/></g>
+<g class="bob"><circle cx="312" cy="58" r="10" fill="#7B5BD6"/><circle cx="168" cy="338" r="10" fill="#7B5BD6"/></g>
+<g class="bob2"><circle cx="64" cy="190" r="10" fill="#5FB3A0"/><circle cx="336" cy="334" r="10" fill="#5FB3A0"/></g>
+</svg>
+<div class="floaty" style="position:absolute;top:2%;right:2%;background:#FFFFFF;border-radius:999px;padding:9px 18px;box-shadow:0 14px 30px rgba(19,35,66,.14);font-weight:700;font-size:14px;line-height:1.3;display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#E8684A"></span>جمهور جديد بفضل الإعلان</div>
+</div>
+</div>
 
-    <!-- قسم جديد: أهمية الإعلان الممول مع صورة مخصصة -->
-    <section id="paid-ads-importance" class="py-16 sm:py-20 bg-white border-y border-slate-200/70">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                <div class="lg:col-span-5 reveal">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=950&q=80"
-                             alt="أهمية الإعلان الممول على فيسبوك وإنستجرام في نمو المبيعات"
-                             class="w-full h-[330px] sm:h-[380px] object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/EEF3FA/0B1B3B?text=Paid+Ads';">
-                    </div>
-                </div>
+<div style="margin-top:56px;display:flex;flex-wrap:wrap;gap:24px">
+<div style="flex:1 1 400px;min-width:0;background:#F0F2F6;border-radius:28px;padding:28px">
+<div class="h3">المنشور العادي</div>
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;color:#44587A;font-size:17px;line-height:1.7">
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D8BA6" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span>يصل غالباً إلى جزء من متابعيك فقط</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D8BA6" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span>يعتمد ظهوره على الخلاصة وليس على قرارك</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D8BA6" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span>لا تختار من يراه</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7D8BA6" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span>قياس النتائج محدود</span></div>
+</div>
+</div>
+<div style="flex:1 1 400px;min-width:0;background:#DCE8FA;border-radius:28px;padding:28px">
+<div class="h3" style="color:#1B4A9E">الإعلان الممول</div>
+<div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;color:#132342;font-size:17px;line-height:1.7">
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6BD1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span>يصل إلى أشخاص لا يعرفونك بعد</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6BD1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span>يظهر في الوقت الذي تحدده</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6BD1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span>تختار المكان والفئة والاهتمامات</span></div>
+<div style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:4px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A6BD1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span>نتائج واضحة نتابعها ونحسّنها</span></div>
+</div>
+</div>
+</div>
 
-                <div class="lg:col-span-7 space-y-5 reveal reveal-delay-1">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
-                        أهمية الإعلان الممول
-                    </span>
+<div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:20px">
+<div class="lift" style="flex:1 1 230px;min-width:0;background:#FDF0CC;border-radius:24px;padding:24px">
+<div class="h3" style="font-size:19px">وصول أسرع</div>
+<p style="margin:4px 0 0;color:#5C4A1A;font-size:16px;line-height:1.8">لا تنتظر أن يجدك الناس، بل تصل إليهم من اليوم الأول.</p>
+</div>
+<div class="lift" style="flex:1 1 230px;min-width:0;background:#FCE5DD;border-radius:24px;padding:24px">
+<div class="h3" style="font-size:19px">جمهور جديد</div>
+<p style="margin:4px 0 0;color:#5A3A33;font-size:16px;line-height:1.8">عملاء محتملون خارج دائرة معارفك ومتابعيك.</p>
+</div>
+<div class="lift" style="flex:1 1 230px;min-width:0;background:#E4E7F8;border-radius:24px;padding:24px">
+<div class="h3" style="font-size:19px">تحكم كامل</div>
+<p style="margin:4px 0 0;color:#363F6B;font-size:16px;line-height:1.8">أنت تحدد الميزانية والمدة ومن يرى إعلانك.</p>
+</div>
+<div class="lift" style="flex:1 1 230px;min-width:0;background:#E2F0DC;border-radius:24px;padding:24px">
+<div class="h3" style="font-size:19px">نتائج قابلة للقياس</div>
+<p style="margin:4px 0 0;color:#38502F;font-size:16px;line-height:1.8">نعرف ما نجح وما يحتاج تعديلاً ونطوّر الحملة.</p>
+</div>
+</div>
+</div>
+</section>
 
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0B1B3B] leading-snug">
-                        ليه الإعلان الممول بقى خطوة أساسية لأي بيزنس عايز <span class="text-[#1E6BF1]">يزود مبيعاته بسرعة</span>؟
-                    </h2>
+<!-- WHY TARGETING -->
+<section id="why" style="background:#FFFFFF">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px">
+<div style="max-width:720px">
+<div style="display:inline-block;background:#FCE5DD;color:#8F3520;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">لماذا الاستهداف مهم؟</div>
+<h2 class="h2" style="margin-top:18px">الإعلان القوي يضيع إذا رآه الشخص الخطأ</h2>
+<p style="margin:18px 0 0;color:#44587A">الميزانية نفسها يمكن أن تصنع نتيجتين مختلفتين تماماً. الفرق ليس في عدد من رأى إعلانك، بل في من رآه. الاستهداف الصحيح يجعل كل جنيه تصرفه يصل إلى شخص قد يشتري فعلاً.</p>
+</div>
 
-                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
-                        الاعتماد على النشر العادي أو انتظار الناس توصل لصفحتك بالصدفة بياخد وقت طويل جداً ومبيغطيش غير نسبة بسيطة من متابعينك. الإعلان الممول على فيسبوك وإنستجرام بيخلي منتجك أو خدمتك تظهر قدام ناس جديدة كل يوم، وبيفتحلك باب رسائل وطلبات شراء حقيقية وبيسرّع وصولك للتارجت بتاعك.
-                    </p>
+<div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:28px">
+<div style="flex:1 1 400px;min-width:0;background:#F0F2F6;border-radius:28px;padding:26px">
+<div class="h3">بدون استهداف</div>
+<div style="color:#44587A;font-size:16px;line-height:1.7">ظهور واسع، واهتمام قليل</div>
+<svg viewBox="0 0 420 300" style="width:100%;height:auto;display:block;margin-top:14px" role="img" aria-label="نقاط كثيرة مبعثرة يتحول منها عدد قليل فقط إلى عملاء">
+<g fill="#B4C2C5">
+<circle cx="40" cy="50" r="7"/><circle cx="150" cy="70" r="7"/><circle cx="210" cy="35" r="7"/><circle cx="265" cy="60" r="7"/><circle cx="330" cy="30" r="7"/><circle cx="380" cy="75" r="7"/><circle cx="60" cy="120" r="7"/><circle cx="120" cy="150" r="7"/><circle cx="240" cy="140" r="7"/><circle cx="300" cy="105" r="7"/><circle cx="355" cy="150" r="7"/><circle cx="395" cy="120" r="7"/><circle cx="35" cy="190" r="7"/><circle cx="90" cy="225" r="7"/><circle cx="145" cy="200" r="7"/><circle cx="205" cy="245" r="7"/><circle cx="260" cy="205" r="7"/><circle cx="375" cy="210" r="7"/><circle cx="50" cy="265" r="7"/><circle cx="130" cy="272" r="7"/><circle cx="190" cy="160" r="7"/><circle cx="285" cy="272" r="7"/><circle cx="345" cy="185" r="7"/><circle cx="235" cy="90" r="7"/><circle cx="110" cy="95" r="7"/>
+</g>
+<g fill="#2A6BD1"><circle cx="180" cy="110" r="10"/><circle cx="320" cy="240" r="10"/><circle cx="95" cy="30" r="10"/></g>
+</svg>
+</div>
+<div style="flex:1 1 400px;min-width:0;background:#DCE8FA;border-radius:28px;padding:26px">
+<div class="h3">مع Mapway</div>
+<div style="color:#44587A;font-size:16px;line-height:1.7">ظهور لمن يبحث عن منتجك</div>
+<svg viewBox="0 0 420 300" style="width:100%;height:auto;display:block;margin-top:14px" role="img" aria-label="نقاط مجمعة حول هدف واحد، أي أن معظم من يرى الإعلان مهتم">
+<circle cx="210" cy="150" r="128" fill="#C3D7F5"/>
+<circle cx="210" cy="150" r="86" fill="#A5C3F0"/>
+<circle cx="210" cy="150" r="44" fill="#86AEEA"/>
+<circle class="ring" cx="210" cy="150" r="60" fill="none" stroke="#2A6BD1" stroke-width="4"/>
+<g fill="#2A6BD1"><circle cx="210" cy="150" r="10"/><circle cx="185" cy="128" r="9"/><circle cx="238" cy="124" r="9"/><circle cx="206" cy="102" r="9"/><circle cx="170" cy="166" r="9"/><circle cx="244" cy="172" r="9"/><circle cx="216" cy="196" r="9"/><circle cx="188" cy="190" r="9"/><circle cx="148" cy="138" r="9"/><circle cx="268" cy="146" r="9"/><circle cx="228" cy="86" r="9"/><circle cx="150" cy="190" r="9"/></g>
+<g fill="#B4C2C5"><circle cx="50" cy="60" r="6"/><circle cx="372" cy="72" r="6"/><circle cx="58" cy="248" r="6"/><circle cx="362" cy="238" r="6"/><circle cx="388" cy="150" r="6"/></g>
+</svg>
+</div>
+</div>
 
-                    <div class="grid sm:grid-cols-2 gap-4 pt-1">
-                        <div class="bg-canvas p-5 rounded-2xl border border-slate-200/80">
-                            <h3 class="font-heading font-bold text-base sm:text-lg text-[#0B1B3B] mb-1.5">وصول أسرع لعملاء جدد</h3>
-                            <p class="text-sm text-inksoft leading-relaxed">
-                                يخرج بيزنسك من دايرة محدودة ويوصل لآلاف المهتمين بنفس مجالك في وقت قصير.
-                            </p>
-                        </div>
-                        <div class="bg-canvas p-5 rounded-2xl border border-slate-200/80">
-                            <h3 class="font-heading font-bold text-base sm:text-lg text-[#0B1B3B] mb-1.5">تحكم واضح في النتائج</h3>
-                            <p class="text-sm text-inksoft leading-relaxed">
-                                بنقدر نحدد المكان والجمهور والميزانية ونحسّن الحملة باستمرار عشان تجيب أفضل مبيعات.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:20px">
+<div style="flex:1 1 300px;min-width:0;display:flex;gap:16px;align-items:flex-start">
+<div style="flex:none;width:48px;height:48px;border-radius:16px;background:#DCE8FA;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/></svg></div>
+<div><div class="h3" style="font-size:19px">ميزانية تُصرف بذكاء</div><p style="margin:4px 0 0;color:#44587A;font-size:16px;line-height:1.8">لا تدفع لمن لن يشتري. نركز إنفاقك على من يهمه عرضك.</p></div>
+</div>
+<div style="flex:1 1 300px;min-width:0;display:flex;gap:16px;align-items:flex-start">
+<div style="flex:none;width:48px;height:48px;border-radius:16px;background:#E4E7F8;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></div>
+<div><div class="h3" style="font-size:19px">رسالة تناسب كل فئة</div><p style="margin:4px 0 0;color:#44587A;font-size:16px;line-height:1.8">نكتب ونصمم الإعلان بما يخاطب اهتمامات الجمهور الذي اخترناه.</p></div>
+</div>
+<div style="flex:1 1 300px;min-width:0;display:flex;gap:16px;align-items:flex-start">
+<div style="flex:none;width:48px;height:48px;border-radius:16px;background:#FDF0CC;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></div>
+<div><div class="h3" style="font-size:19px">مبيعات تنمو بثبات</div><p style="margin:4px 0 0;color:#44587A;font-size:16px;line-height:1.8">كلما وصل الإعلان لشخص مهتم، زادت فرصة الشراء والعودة مرة أخرى.</p></div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- القسم الأول: أهمية استهداف الجمهور الصح مع صورة مخصصة -->
-    <section id="why-targeting" class="py-16 sm:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                <div class="lg:col-span-7 space-y-5 order-2 lg:order-1 reveal">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
-                        أهمية استهداف الجمهور الصح
-                    </span>
+<!-- STUDY YOUR PAGE -->
+<section id="study" style="background:#E9F0FB">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:64px">
+<div style="flex:1 1 440px;min-width:0">
+<div style="display:inline-block;background:#FFFFFF;color:#1B4A9E;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">أكثر من مجرد إعلان</div>
+<h2 class="h2" style="margin-top:18px">نحن لا نكتفي بتشغيل الإعلان، بل ندرس صفحتك أولاً</h2>
+<p style="margin:18px 0 0;color:#44587A">الإعلان يجلب الزائر، لكن صفحتك هي التي تقنعه. لذلك نراجع صفحتك بالكامل قبل الحملة، ثم نضع خطة تجعلها أكثر جاذبية وأقدر على جذب جمهور أكبر.</p>
+<div style="margin-top:28px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:14px;height:14px;border-radius:50%;background:#2A6BD1"></span><span>مراجعة شكل الصفحة ومحتواها وطريقة عرض منتجاتك</span></div>
+<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:14px;height:14px;border-radius:50%;background:#E8684A"></span><span>دراسة جمهورك الحالي والمنافسين في مجالك</span></div>
+<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:14px;height:14px;border-radius:50%;background:#F4B942"></span><span>خطة واضحة لتحسين الصفحة وجذب متابعين جدد</span></div>
+<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:14px;height:14px;border-radius:50%;background:#7B5BD6"></span><span>حملة إعلانية مبنية على كل ما سبق</span></div>
+</div>
+</div>
 
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0B1B3B] leading-snug">
-                        الجمهور الصح هو اللي بيحوّل المشاهدة لـ <span class="text-[#1E6BF1]">مبيعات حقيقية</span> مش مجرد أرقام
-                    </h2>
+<div style="flex:1 1 440px;min-width:0;max-width:540px;margin:0 auto;position:relative">
+<svg viewBox="0 0 520 470" style="width:100%;height:auto;display:block" role="img" aria-label="رسم لصفحة تجارية على فيسبوك مع ملاحظات تحسين على الغلاف والنبذة والمنشورات">
+<rect x="34" y="30" width="460" height="430" rx="28" fill="#C3D7F5"/>
+<rect x="14" y="10" width="460" height="430" rx="28" fill="#FFFFFF"/>
+<path d="M14 180V38a28 28 0 0 1 28-28H446a28 28 0 0 1 28 28V180Z" fill="#BFE3F2"/>
+<circle cx="110" cy="70" r="28" fill="#F4B942"/>
+<path d="M14 180V132C90 92 160 150 240 120S390 102 474 142V180Z" fill="#8FCBB8"/>
+<path d="M14 180V158C100 130 180 176 270 150S400 138 474 164V180Z" fill="#5FB3A0"/>
+<circle cx="390" cy="188" r="48" fill="#FFFFFF"/>
+<circle cx="390" cy="188" r="41" fill="#2A6BD1"/>
+<path d="M390 168c-9 0-14 7-14 14 0 10 14 24 14 24s14-14 14-24c0-7-5-14-14-14z" fill="#FFFFFF"/>
+<circle cx="390" cy="182" r="5" fill="#E8684A"/>
+<rect x="200" y="196" width="150" height="15" rx="7.5" fill="#132342" opacity=".88"/>
+<rect x="250" y="220" width="100" height="10" rx="5" fill="#C9D6D3"/>
+<rect x="44" y="204" width="112" height="34" rx="17" fill="#2A6BD1"/>
+<rect x="68" y="218" width="64" height="7" rx="3.5" fill="#FFFFFF"/>
+<g fill="#C9D6D3"><rect x="300" y="262" width="52" height="9" rx="4.5"/><rect x="236" y="262" width="52" height="9" rx="4.5"/><rect x="172" y="262" width="52" height="9" rx="4.5"/></g>
+<rect x="344" y="262" width="0" height="0"/>
+<rect x="346" y="290" width="116" height="126" rx="16" fill="#FDF0CC"/>
+<circle cx="404" cy="334" r="22" fill="#F4B942"/>
+<rect x="362" y="376" width="84" height="8" rx="4" fill="#132342" opacity=".7"/>
+<rect x="380" y="392" width="66" height="7" rx="3.5" fill="#C9D6D3"/>
+<rect x="202" y="290" width="116" height="126" rx="16" fill="#E4E7F8"/>
+<path d="M232 356l26-34 26 34z" fill="#7B5BD6"/>
+<rect x="218" y="376" width="84" height="8" rx="4" fill="#132342" opacity=".7"/>
+<rect x="236" y="392" width="66" height="7" rx="3.5" fill="#C9D6D3"/>
+<rect x="58" y="290" width="116" height="126" rx="16" fill="#FCE5DD"/>
+<rect x="88" y="318" width="56" height="40" rx="10" fill="#E8684A"/>
+<rect x="74" y="376" width="84" height="8" rx="4" fill="#132342" opacity=".7"/>
+<rect x="92" y="392" width="66" height="7" rx="3.5" fill="#C9D6D3"/>
+</svg>
+<div class="floaty" style="position:absolute;top:2%;left:-14px;background:#FFFFFF;border-radius:999px;padding:8px 16px 8px 10px;box-shadow:0 14px 30px rgba(22,49,58,.14);display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;line-height:1.3">
+<span style="width:26px;height:26px;border-radius:50%;background:#F4B942;display:flex;align-items:center;justify-content:center;font-size:13px">1</span>غلاف يعبّر عن نشاطك</div>
+<div class="floaty2" style="position:absolute;top:36%;right:-14px;background:#FFFFFF;border-radius:999px;padding:8px 16px 8px 10px;box-shadow:0 14px 30px rgba(22,49,58,.14);display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;line-height:1.3">
+<span style="width:26px;height:26px;border-radius:50%;background:#F4B942;display:flex;align-items:center;justify-content:center;font-size:13px">2</span>نبذة تقنع الزائر</div>
+<div class="floaty" style="position:absolute;bottom:3%;left:-10px;background:#FFFFFF;border-radius:999px;padding:8px 16px 8px 10px;box-shadow:0 14px 30px rgba(22,49,58,.14);display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;line-height:1.3">
+<span style="width:26px;height:26px;border-radius:50%;background:#F4B942;display:flex;align-items:center;justify-content:center;font-size:13px">3</span>منشورات تجذب التفاعل</div>
+</div>
+</div>
+</section>
 
-                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
-                        لما إعلانك يظهر لناس مش مهتمة باللي بتقدمه، بتضيع فلوس في تفاعل أو رسائل ملهاش نتيجة. في <strong>Mapway</strong> بنركز إن الإعلان يروح للجمهور المناسب لطبيعة شغلك وسعرك ومكانه، عشان توفر ميزانيتك وتستقبل عملاء جادين عندهم نية حقيقية للشراء.
-                    </p>
+<!-- PROCESS -->
+<section id="process" style="background:#FFFFFF">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px">
+<div style="max-width:720px">
+<div style="display:inline-block;background:#E4E7F8;color:#2F3C8C;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">كيف نعمل</div>
+<h2 class="h2" style="margin-top:18px">رحلة حملتك معنا، خطوة بخطوة</h2>
+</div>
+<div style="margin-top:56px;position:relative;display:flex;flex-wrap:wrap;gap:36px 28px">
+<div class="routeline" style="position:absolute;top:27px;right:28px;left:28px;height:0;border-top:3px dashed #9DB8E8"></div>
+<div style="flex:1 1 240px;min-width:0;position:relative">
+<div style="width:56px;height:56px;border-radius:50%;background:#2A6BD1;color:#FFFFFF;font-family:'Cairo',sans-serif;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #FFFFFF">1</div>
+<div class="h3" style="margin-top:20px">ندرس صفحتك</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">نفهم نشاطك وجمهورك ومنافسيك، ونقيّم صفحتك بصدق.</p>
+</div>
+<div style="flex:1 1 240px;min-width:0;position:relative">
+<div style="width:56px;height:56px;border-radius:50%;background:#E8684A;color:#132342;font-family:'Cairo',sans-serif;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #FFFFFF">2</div>
+<div class="h3" style="margin-top:20px">نضع الخطة</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">نحدد الجمهور والميزانية والرسائل وتحسينات الصفحة.</p>
+</div>
+<div style="flex:1 1 240px;min-width:0;position:relative">
+<div style="width:56px;height:56px;border-radius:50%;background:#F4B942;color:#132342;font-family:'Cairo',sans-serif;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #FFFFFF">3</div>
+<div class="h3" style="margin-top:20px">نطلق الحملة</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">تنطلق إعلاناتك على فيسبوك وإنستجرام بالاستهداف الذي اخترناه.</p>
+</div>
+<div style="flex:1 1 240px;min-width:0;position:relative">
+<div style="width:56px;height:56px;border-radius:50%;background:#7B5BD6;color:#FFFFFF;font-family:'Cairo',sans-serif;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px #FFFFFF">4</div>
+<div class="h3" style="margin-top:20px">نتابع ونطوّر</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">نراقب النتائج ونعدّل الحملة باستمرار لتقترب من هدفك.</p>
+</div>
+</div>
+</div>
+</section>
 
-                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-[#1E6BF1]/10 text-[#1E6BF1] flex items-center justify-center mb-3">
-                                <i data-lucide="target" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-heading font-bold text-lg text-[#0B1B3B] mb-1.5">توفير الميزانية ورفع العائد</h3>
-                            <p class="text-sm text-inksoft leading-relaxed">
-                                توجيه الإعلان للناس المناسبة يقلل الهدر ويزود فرص البيع بنفس الميزانية الإعلانية.
-                            </p>
-                        </div>
+<!-- SERVICES -->
+<section id="services" style="background:#F3F6FB">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px">
+<div style="max-width:720px">
+<div style="display:inline-block;background:#FDF0CC;color:#6B4A00;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">خدماتنا</div>
+<h2 class="h2" style="margin-top:18px">كل ما يحتاجه نشاطك ليصل ويبيع</h2>
+</div>
+<div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:24px">
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#DCE8FA;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+<div class="h3" style="margin-top:20px">تحليل الصفحة</div>
+<p style="margin:6px 0 0;color:#3B4F70;font-size:16.5px;line-height:1.85">نقرأ صفحتك كما يراها العميل، ونحدد ما يجذبه وما يبعده.</p>
+</div>
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#FCE5DD;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M9 10v10"/></svg></div>
+<div class="h3" style="margin-top:20px">خطة لجذب الناس</div>
+<p style="margin:6px 0 0;color:#5A3A33;font-size:16.5px;line-height:1.85">تحسينات عملية لشكل الصفحة ومحتواها لتصبح أكثر جاذبية.</p>
+</div>
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#DDF0F8;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l7 4V6L7 10H4z"/><path d="M17.5 9a4 4 0 0 1 0 6"/></svg></div>
+<div class="h3" style="margin-top:20px">إعلانات فيسبوك</div>
+<p style="margin:6px 0 0;color:#34496B;font-size:16.5px;line-height:1.85">حملات ممولة تصل إلى الجمهور الذي يستخدم فيسبوك كل يوم.</p>
+</div>
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#E4E7F8;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8"/></svg></div>
+<div class="h3" style="margin-top:20px">إعلانات إنستجرام</div>
+<p style="margin:6px 0 0;color:#363F6B;font-size:16.5px;line-height:1.85">صور وفيديوهات تخاطب جمهوراً يبحث عن الإلهام والشراء.</p>
+</div>
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#FDF0CC;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+<div class="h3" style="margin-top:20px">استهداف داخل مصر</div>
+<p style="margin:6px 0 0;color:#5C4A1A;font-size:16.5px;line-height:1.85">نحدد المحافظة أو المدينة أو المنطقة التي يوجد فيها عميلك.</p>
+</div>
+<div class="lift" style="flex:1 1 340px;min-width:0;background:#E2F0DC;border-radius:28px;padding:30px">
+<div style="width:56px;height:56px;border-radius:18px;background:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+<div class="h3" style="margin-top:20px">وصول عالمي</div>
+<p style="margin:6px 0 0;color:#38502F;font-size:16.5px;line-height:1.85">نخرج بنشاطك خارج الحدود إلى دول يوجد فيها اهتمام بمنتجك.</p>
+</div>
+</div>
+</div>
+</section>
 
-                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
-                            <div class="w-10 h-10 rounded-xl bg-[#1E6BF1]/10 text-[#1E6BF1] flex items-center justify-center mb-3">
-                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                            </div>
-                            <h3 class="font-heading font-bold text-lg text-[#0B1B3B] mb-1.5">عملاء مستعدون للشراء</h3>
-                            <p class="text-sm text-inksoft leading-relaxed">
-                                بنستهدف شرائح تهمها منتجاتك أو خدماتك عشان رسائلك تتحول لطلبات فعلية.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<!-- REACH -->
+<section id="reach" style="background:#E6F2F9">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:64px">
+<div style="flex:1 1 440px;min-width:0">
+<div style="display:inline-block;background:#FFFFFF;color:#1D5F7A;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">الوصول</div>
+<h2 class="h2" style="margin-top:18px">من أي مكان في مصر إلى أي مكان في العالم</h2>
+<p style="margin:18px 0 0;color:#3F5577">نختار الموقع والفئة العمرية والاهتمامات بدقة، فيصل إعلانك إلى عميلك سواء كان في حي بالقاهرة أو في دولة أخرى.</p>
+<div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:16px">
+<div style="flex:1 1 220px;min-width:0;background:#FFFFFF;border-radius:22px;padding:20px 22px">
+<div class="h3" style="font-size:19px;color:#1B4A9E">داخل مصر</div>
+<div style="color:#44587A;font-size:16px;line-height:1.8;margin-top:4px">من العاصمة إلى كل المحافظات والمدن.</div>
+</div>
+<div style="flex:1 1 220px;min-width:0;background:#FFFFFF;border-radius:22px;padding:20px 22px">
+<div class="h3" style="font-size:19px;color:#2F3C8C">خارج مصر</div>
+<div style="color:#44587A;font-size:16px;line-height:1.8;margin-top:4px">عملاء في أي دولة يهتمون بما تقدمه.</div>
+</div>
+</div>
+</div>
 
-                <div class="lg:col-span-5 order-1 lg:order-2 reveal reveal-delay-1">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
-                             alt="استهداف الجمهور المناسب بدقة على فيسبوك وإنستجرام"
-                             class="w-full h-[330px] sm:h-[380px] object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/EEF3FA/0B1B3B?text=Right+Audience';">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div style="flex:1 1 440px;min-width:0;max-width:540px;margin:0 auto">
+<svg viewBox="0 0 520 440" style="width:100%;height:auto;display:block" role="img" aria-label="دوائر تتسع من مصر نحو المحافظات ثم الخليج وأوروبا وأمريكا وآسيا">
+<circle cx="260" cy="220" r="205" fill="none" stroke="#9CC9DD" stroke-width="2" stroke-dasharray="4 10"/>
+<circle cx="260" cy="220" r="140" fill="none" stroke="#9CC9DD" stroke-width="2" stroke-dasharray="4 10"/>
+<circle cx="260" cy="220" r="76" fill="#FFFFFF" opacity=".7"/>
+<circle class="ring" cx="260" cy="220" r="60" fill="#E8684A"/>
+<circle class="ring ring2" cx="260" cy="220" r="60" fill="#E8684A"/>
+<g transform="translate(260 244)"><g class="bob"><path d="M0 0C-14-18-20-28-20-38a20 20 0 1 1 40 0c0 10-6 20-20 38z" fill="#E8684A"/><circle cx="0" cy="-38" r="8" fill="#FFFFFF"/></g></g>
+<text x="260" y="268" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="17" fill="#132342">مصر</text>
+<g font-family="Tajawal,Cairo,sans-serif" font-size="16" font-weight="700" fill="#132342" text-anchor="middle">
+<circle cx="170" cy="150" r="10" fill="#2A6BD1"/><text x="170" y="130">الإسكندرية</text>
+<circle cx="345" cy="298" r="10" fill="#2A6BD1"/><text x="345" y="326">الصعيد</text>
+<circle cx="392" cy="130" r="11" fill="#F4B942"/><text x="392" y="108">الخليج</text>
+<circle cx="118" cy="62" r="11" fill="#7B5BD6"/><text x="118" y="42">أوروبا</text>
+<circle cx="110" cy="360" r="11" fill="#7B5BD6"/><text x="110" y="392">أمريكا</text>
+<circle cx="440" cy="330" r="11" fill="#F4B942"/><text x="440" y="362">آسيا</text>
+</g>
+</svg>
+</div>
+</div>
+</section>
 
-    <!-- القسم الثاني: دراسة الصفحة ووضع خطة لجعلها جذابة مع صورة لكل شرح -->
-    <section id="our-method" class="py-16 sm:py-24 bg-white border-y border-slate-200/70">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center space-y-3.5 mb-14 reveal">
-                <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
-                    إحنا مش بنعمل إعلان وخلاص
-                </span>
-                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-[40px] text-[#0B1B3B] leading-tight">
-                    بندرس صفحتك الأول.. وبنحط خطة تخليها جذابة وتشد ناس كتير
-                </h2>
-                <p class="text-base sm:text-lg text-inksoft leading-relaxed">
-                    العميل أول ما يشوف إعلانك بيدخل يبص على الصفحة؛ لو شكلها أو محتواها مش واضح ومشجع بيخرج بسرعة. عشان كده بنشتغل معاك في ثلاث خطوات متكاملة ولكل خطوة دور واضح:
-                </p>
-            </div>
+<!-- RESULTS -->
+<section id="results" style="background:#FFF8EC">
+<div style="max-width:1200px;margin:0 auto;padding:96px 24px">
+<div style="max-width:760px">
+<div style="display:inline-block;background:#E2F0DC;color:#2C5A1F;font-weight:700;font-size:15px;line-height:1.4;padding:7px 16px;border-radius:999px">نتائجنا</div>
+<h2 class="h2" style="margin-top:18px">ساعدنا كثيراً من أصحاب الأعمال على تحقيق أهدافهم</h2>
+<p style="margin:18px 0 0;color:#5A4E3A">بدأ كل منهم بصفحة تحتاج إلى جمهور مناسب، وانتهى بحملة مبنية على فهم حقيقي لنشاطه.</p>
+</div>
+<div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:24px">
+<div class="lift" style="flex:1 1 320px;min-width:0;background:#FFFFFF;border-radius:28px;padding:30px;box-shadow:0 6px 18px rgba(22,49,58,.06)">
+<div style="width:56px;height:56px;border-radius:50%;background:#DCE8FA;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l1.5-5h13L20 9"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg></div>
+<div class="h3" style="margin-top:18px">متاجر ومشاريع صغيرة</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">وصلت منتجاتها إلى جمهور يبحث عنها فعلاً، وتابعنا معها حتى حققت هدفها البيعي.</p>
+</div>
+<div class="lift" style="flex:1 1 320px;min-width:0;background:#FFFFFF;border-radius:28px;padding:30px;box-shadow:0 6px 18px rgba(22,49,58,.06)">
+<div style="width:56px;height:56px;border-radius:50%;background:#FDF0CC;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg></div>
+<div class="h3" style="margin-top:18px">خدمات ونشاط محلي</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">حملات قريبة من أهل المنطقة المناسبين، تحوّل المتابعة إلى طلب حقيقي.</p>
+</div>
+<div class="lift" style="flex:1 1 320px;min-width:0;background:#FFFFFF;border-radius:28px;padding:30px;box-shadow:0 6px 18px rgba(22,49,58,.06)">
+<div style="width:56px;height:56px;border-radius:50%;background:#E4E7F8;display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#132342" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+<div class="h3" style="margin-top:18px">علامات تتوسع</div>
+<p style="margin:6px 0 0;color:#44587A;font-size:16.5px;line-height:1.85">حملات تتجاوز حدود المدينة لتصل إلى عملاء في أنحاء مصر وخارجها.</p>
+</div>
+</div>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:18px">
+<a class="btn" href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener" style="background:#132342;color:#FFFFFF;font-weight:700;font-size:17px;line-height:1;padding:18px 28px;border-radius:999px">شاهد أعمالنا على صفحتنا</a>
+<span style="color:#5A4E3A;font-size:16px">كل ما ننشره من حملات وأفكار تجده هناك.</span>
+</div>
+</div>
+</section>
 
-            <div class="grid md:grid-cols-3 gap-7">
-                <!-- الخطوة 1 -->
-                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal">
-                    <div>
-                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                                 alt="دراسة وتحليل صفحة العميل قبل إطلاق الإعلان"
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Study+Page';">
-                            <span class="absolute top-3 right-3 bg-[#0B1B3B] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
-                                01 • دراسة الصفحة
-                            </span>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">بندرس صفحتك بالكامل</h3>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            بندخل ندرس صفحتك ونشوف طريقة عرض منتجاتك أو خدماتك، وإيه اللي بيخلي الزائر يكمل أو يخرج، عشان نبدأ على أساس مظبوط.
-                        </p>
-                    </div>
-                </div>
+<!-- CTA -->
+<section style="background:#132342;color:#FFFFFF">
+<div style="max-width:1200px;margin:0 auto;padding:90px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:36px">
+<div style="flex:1 1 480px;min-width:0">
+<h2 class="h2" style="color:#FFFFFF">ابدأ من صفحتنا على فيسبوك</h2>
+<p style="margin:16px 0 0;color:#C5D3EE;max-width:560px">تابعنا لتشاهد أعمالنا وطريقتنا في إدارة الحملات، وتواصل معنا هناك لنبدأ بدراسة صفحتك.</p>
+</div>
+<a class="btn" href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener" style="background:#F4B942;color:#132342;font-weight:800;font-size:18px;line-height:1;padding:20px 34px;border-radius:999px">افتح صفحة Mapway</a>
+</div>
+</section>
 
-                <!-- الخطوة 2 -->
-                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal reveal-delay-1">
-                    <div>
-                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
-                                 alt="وضع خطة عملية لجعل الصفحة جذابة وتستهدف ناس كتير"
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Attractive+Plan';">
-                            <span class="absolute top-3 right-3 bg-[#1E6BF1] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
-                                02 • خطة الجاذبية
-                            </span>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">خطة تخلي صفحتك جذابة وتشد ناس كتير</h3>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            بنحطلك خطة عملية تخلي شكل صفحتك ومحتواها جذابة ومريحة للعين، وتشد ناس كتير وتبني ثقة تخلي العميل يرتاحلك ويطلب منك.
-                        </p>
-                    </div>
-                </div>
+<!-- FOOTER -->
+<footer style="background:#0C1832;color:#C5D3EE">
+<div style="max-width:1200px;margin:0 auto;padding:34px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;font-size:15px">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="background:#FFFFFF;border-radius:14px;padding:6px 14px;display:flex"><span dir="ltr" style="font-family:'Cairo',sans-serif;font-weight:900;font-size:24px;line-height:1.4;color:#2A6BD1">Mapway</span></div>
+<span>إعلانات ممولة على فيسبوك وإنستجرام</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:22px;align-items:center">
+<a class="navlink" href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener" style="color:#FFFFFF;font-weight:700">صفحتنا على فيسبوك</a>
+<span>© 2026 Mapway. جميع الحقوق محفوظة.</span>
+</div>
+</div>
+</footer>
 
-                <!-- الخطوة 3 -->
-                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal reveal-delay-2">
-                    <div>
-                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-                                 alt="إطلاق إعلانات ممولة في مصر والعالم لزيادة المبيعات"
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Egypt+And+World';">
-                            <span class="absolute top-3 right-3 bg-[#0B1B3B] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
-                                03 • إعلانات في مصر والعالم
-                            </span>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">إعلانات تزود مبيعاتك في مصر والعالم</h3>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            بنطلق إعلانات ممولة على فيسبوك وإنستجرام توصل لكل أنحاء مصر ومختلف دول العالم باستهداف دقيق عشان تزود مبيعاتك وتحقق التارجت.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
 
-    <!-- القسم الثالث: مساعدة عملاء كثيرين على تحقيق التارجت مع صورة -->
-    <section id="results" class="py-16 sm:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-8 items-center mb-12 reveal">
-                <div class="lg:col-span-7 space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
-                        تحقيق التارجت وزيادة المبيعات
-                    </span>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-[40px] text-[#0B1B3B] leading-tight">
-                        ساعدنا ناس كتير جداً يحققوا التارجت ويزودوا مبيعاتهم
-                    </h2>
-                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
-                        اشتغلنا مع أصحاب مشاريع وبراندات متنوعة في مصر وخارجها، وركزنا على تهيئة الصفحة واستهداف الجمهور المناسب عشان نوصل لنتائج ملموسة في المبيعات.
-                    </p>
-                </div>
-                <div class="lg:col-span-5">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
-                             alt="فريق Mapway يساعد أصحاب المشاريع على تحقيق التارجت"
-                             class="w-full h-56 object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/700x350/EEF3FA/0B1B3B?text=Target+Achieved';">
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-7">
-                <!-- رأي 1 -->
-                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center gap-1 text-amber-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            "كنا بنعمل إعلانات والنتيجة مش قد الطموح. فريق Mapway درس الصفحة الأول، ظبط طريقة عرض المنتجات، واستهدف الجمهور الصح—وبفضل الله حققنا التارجت ومبيعاتنا زادت."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80"
-                             alt="أحمد محمود"
-                             class="w-11 h-11 rounded-full object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=AM';">
-                        <div>
-                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">أحمد محمود</h3>
-                            <span class="text-xs text-inksoft">صاحب براند ملابس — القاهرة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- رأي 2 -->
-                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal reveal-delay-1">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center gap-1 text-amber-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            "أكتر حاجة عجبتني إنهم مش مجرد ناس بتعمل إعلان وخلاص؛ حطولي خطة خلت صفحتي جذابة وتشد ناس كتير، ووصلنا لعملاء في مصر ودول الخليج والنتيجة كانت ممتازة."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80"
-                             alt="سارة عبد الرحمن"
-                             class="w-11 h-11 rounded-full object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=SA';">
-                        <div>
-                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">سارة عبد الرحمن</h3>
-                            <span class="text-xs text-inksoft">صاحبة متجر منتجات عناية — الإسكندرية</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- رأي 3 -->
-                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal reveal-delay-2">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center gap-1 text-amber-400">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
-                            "الاستهداف الدقيق فرق معانا جداً في نوعية العملاء اللي بتبعت؛ بقى بيجيلنا عميل فاهم وعارف هو عايز إيه وجاهز يشتري، وده ساعدنا نحقق التارجت بسهولة."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80"
-                             alt="كريم السيد"
-                             class="w-11 h-11 rounded-full object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=KS';">
-                        <div>
-                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">كريم السيد</h3>
-                            <span class="text-xs text-inksoft">مدير شركة تجهيزات — المنصورة</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- دعوة أخيرة للتواصل عبر صفحة فيسبوك فقط -->
-    <section class="pb-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto bg-white rounded-[2rem] border border-slate-200/90 p-7 sm:p-12 shadow-sm reveal">
-            <div class="grid lg:grid-cols-12 gap-6 items-center">
-                <div class="lg:col-span-8 space-y-2.5">
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#0B1B3B] leading-snug">
-                        جاهز تخلي صفحتك جذابة وتوصل لجمهورك وتقفل التارجت؟
-                    </h2>
-                    <p class="text-sm sm:text-base text-inksoft leading-relaxed">
-                        ابعتلنا على صفحتنا الرسمية على فيسبوك وهنبدأ بدراسة صفحتك ونقولك إزاي نكبر مبيعاتك بإعلانات ممولة مدروسة صح.
-                    </p>
-                </div>
-                <div class="lg:col-span-4 flex lg:justify-end">
-                    <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
-                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-base px-7 py-3.5 rounded-xl shadow-md transition-all duration-300">
-                        <i data-lucide="facebook" class="w-5 h-5 fill-current"></i>
-                        <span>راسلنا على فيسبوك</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- تذييل الصفحة برابط صفحة فيسبوك فقط -->
-    <footer class="bg-white border-t border-slate-200/80 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5">
-            <div class="flex items-center gap-2.5">
-                <span class="font-heading font-black text-2xl leading-none">
-                    <span class="text-[#0B1B3B]">Map</span><span class="text-[#1E6BF1]">way</span>
-                </span>
-                <span class="text-xs sm:text-sm text-inksoft border-r border-slate-200 pr-2.5">
-                    إعلانات ممولة • دراسة وتطوير الصفحات • مصر والعالم
-                </span>
-            </div>
-
-            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-[#0B1B3B] hover:text-[#1E6BF1] font-heading font-bold text-sm bg-mist px-4 py-2.5 rounded-xl transition-colors">
-                <i data-lucide="facebook" class="w-4 h-4 text-[#1877F2] fill-current"></i>
-                <span>صفحة Mapway الرسمية على فيسبوك</span>
-            </a>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-5 border-t border-slate-100 text-center text-xs text-slate-400">
-            © <span id="year"></span> Mapway. جميع الحقوق محفوظة.
-        </div>
-    </footer>
-
-    <script>
-        // تهيئة الأيقونات وتحديث السنة بأمان
-        try {
-            if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                window.lucide.createIcons();
-            }
-            const yearEl = document.getElementById('year');
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
-            }
-
-            // إظهار العناصر بسلاسة أثناء التمرير
-            const revealElements = document.querySelectorAll('.reveal');
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-
-                revealElements.forEach(el => observer.observe(el));
-            } else {
-                revealElements.forEach(el => el.classList.add('active'));
-            }
-
-            // إضافة ظل خفيف للشريط العلوي عند التمرير
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (!navbar) return;
-                navbar.classList.toggle('shadow-sm', window.scrollY > 16);
-            }, { passive: true });
-        } catch (err) {
-            console.error('Mapway UI initialization error:', err);
-        }
-    </script>
 </body>
-</html>
+                                                                                                                          </html>
