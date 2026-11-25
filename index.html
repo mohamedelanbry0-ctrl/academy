@@ -1,2666 +1,599 @@
+
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>CareerTalk Academy | طوّر لغتك الإنجليزية وابنِ مستقبلك</title>
-
-  <meta name="description"
-        content="CareerTalk Academy - أكاديمية متخصصة في تطوير اللغة الإنجليزية من A1 إلى B2 مع التركيز على Speaking وListening والاستعداد لسوق العمل.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-  <style>
-
-    /* =====================================================
-       ROOT
-    ===================================================== */
-
-    :root {
-      --bg: #07111f;
-      --bg-secondary: #0b1728;
-      --card: rgba(16, 30, 50, 0.82);
-
-      --text: #f8fafc;
-      --text-secondary: #aab7c8;
-      --text-muted: #8190a5;
-
-      --primary: #2563eb;
-      --primary-light: #3b82f6;
-      --primary-dark: #1d4ed8;
-
-      --gold: #f5c451;
-      --gold-light: #ffd86b;
-
-      --border: rgba(255,255,255,0.09);
-
-      --shadow: 0 20px 60px rgba(0,0,0,0.25);
-
-      --nav-bg: rgba(7,17,31,0.82);
-    }
-
-    body.light {
-      --bg: #f5f7fb;
-      --bg-secondary: #ffffff;
-      --card: rgba(255,255,255,0.92);
-
-      --text: #101828;
-      --text-secondary: #475467;
-      --text-muted: #667085;
-
-      --border: rgba(16,24,40,0.10);
-
-      --shadow: 0 20px 50px rgba(16,24,40,0.10);
-
-      --nav-bg: rgba(255,255,255,0.88);
-    }
-
-
-    /* =====================================================
-       RESET
-    ===================================================== */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Cairo", sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(37,99,235,0.14), transparent 28%),
-        radial-gradient(circle at 90% 30%, rgba(245,196,81,0.08), transparent 25%),
-        var(--bg);
-
-      color: var(--text);
-      line-height: 1.8;
-      transition:
-        background 0.35s ease,
-        color 0.35s ease;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    section {
-      scroll-margin-top: 90px;
-    }
-
-
-    /* =====================================================
-       CONTAINER
-    ===================================================== */
-
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-    }
-
-
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
-
-    header {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-
-      background: var(--nav-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      height: 78px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 48px;
-      height: 48px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 16px;
-
-      background:
-        linear-gradient(135deg,
-        var(--primary),
-        #1648b9);
-
-      color: white;
-      font-size: 18px;
-      font-weight: 900;
-
-      box-shadow:
-        0 10px 30px rgba(37,99,235,0.30);
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 17px;
-      font-weight: 900;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--text-muted);
-      font-size: 11px;
-      margin-top: -3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 600;
-
-      transition: 0.25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .theme-btn {
-      width: 44px;
-      height: 44px;
-
-      border: 1px solid var(--border);
-      border-radius: 13px;
-
-      background: var(--card);
-      color: var(--text);
-
-      cursor: pointer;
-
-      font-size: 19px;
-
-      transition: 0.25s;
-    }
-
-    .theme-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary);
-    }
-
-    .nav-cta {
-      background: var(--primary);
-      color: white;
-
-      padding: 10px 18px;
-      border-radius: 12px;
-
-      font-size: 13px;
-      font-weight: 800;
-
-      transition: 0.25s;
-    }
-
-    .nav-cta:hover {
-      background: var(--primary-light);
-      transform: translateY(-2px);
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
-      min-height: 100vh;
-
-      padding-top: 145px;
-      padding-bottom: 80px;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-
-      gap: 65px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      padding: 7px 13px;
-
-      border-radius: 50px;
-
-      background: rgba(37,99,235,0.10);
-      border: 1px solid rgba(37,99,235,0.25);
-
-      color: var(--primary-light);
-
-      font-size: 12px;
-      font-weight: 800;
-
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 6vw, 70px);
-      line-height: 1.15;
-
-      font-weight: 900;
-
-      letter-spacing: -1.5px;
-
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      background:
-        linear-gradient(90deg,
-        var(--primary-light),
-        var(--gold));
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-    }
-
-    .hero-description {
-      max-width: 650px;
-
-      color: var(--text-secondary);
-
-      font-size: 17px;
-
-      line-height: 2;
-
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 14px 25px;
-
-      background: var(--primary);
-
-      color: white;
-
-      border-radius: 13px;
-
-      font-size: 14px;
-      font-weight: 800;
-
-      box-shadow:
-        0 12px 35px rgba(37,99,235,0.25);
-
-      transition: 0.25s;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      background: var(--primary-light);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 14px 25px;
-
-      border: 1px solid var(--border);
-
-      background: var(--card);
-
-      color: var(--text);
-
-      border-radius: 13px;
-
-      font-size: 14px;
-      font-weight: 800;
-
-      transition: 0.25s;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
-    }
-
-
-    /* =====================================================
-       HERO CARD
-    ===================================================== */
-
-    .hero-card {
-      position: relative;
-
-      padding: 30px;
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(37,99,235,0.20),
-          var(--card)
-        );
-
-      border: 1px solid var(--border);
-
-      box-shadow: var(--shadow);
-
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-
-      position: absolute;
-
-      width: 180px;
-      height: 180px;
-
-      border-radius: 50%;
-
-      background: rgba(37,99,235,0.15);
-
-      top: -70px;
-      left: -70px;
-
-      filter: blur(5px);
-    }
-
-    .hero-card-title {
-      position: relative;
-
-      font-size: 14px;
-      color: var(--text-muted);
-
-      margin-bottom: 10px;
-    }
-
-    .hero-card-main {
-      position: relative;
-
-      font-size: 36px;
-      font-weight: 900;
-
-      margin-bottom: 25px;
-    }
-
-    .milestones {
-      position: relative;
-
-      display: grid;
-      gap: 12px;
-    }
-
-    .milestone {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 15px;
-
-      border-radius: 15px;
-
-      background: rgba(255,255,255,0.035);
-
-      border: 1px solid var(--border);
-    }
-
-    .milestone-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .milestone-number {
-      width: 40px;
-      height: 40px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 12px;
-
-      background: rgba(37,99,235,0.15);
-
-      color: var(--primary-light);
-
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .milestone strong {
-      font-size: 14px;
-    }
-
-    .milestone span {
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       STATS
-    ===================================================== */
-
-    .stats {
-      padding-bottom: 90px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      border: 1px solid var(--border);
-      border-radius: 22px;
-
-      overflow: hidden;
-
-      background: var(--card);
-    }
-
-    .stat {
-      padding: 25px;
-
-      text-align: center;
-
-      border-left: 1px solid var(--border);
-    }
-
-    .stat:last-child {
-      border-left: none;
-    }
-
-    .stat strong {
-      display: block;
-
-      font-size: 30px;
-      font-weight: 900;
-
-      color: var(--gold);
-    }
-
-    .stat span {
-      color: var(--text-muted);
-
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       SECTION
-    ===================================================== */
-
-    .section {
-      padding: 100px 0;
-    }
-
-    .section-header {
-      max-width: 720px;
-
-      margin: 0 auto 55px;
-
-      text-align: center;
-    }
-
-    .section-label {
-      display: inline-block;
-
-      color: var(--primary-light);
-
-      font-size: 12px;
-      font-weight: 900;
-
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 4vw, 44px);
-
-      line-height: 1.3;
-
-      font-weight: 900;
-
-      margin-bottom: 14px;
-    }
-
-    .section-description {
-      color: var(--text-secondary);
-
-      font-size: 15px;
-    }
-
-
-    /* =====================================================
-       LEVELS
-    ===================================================== */
-
-    .levels-grid {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 16px;
-    }
-
-    .level-card {
-      padding: 25px;
-
-      background: var(--card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 20px;
-
-      transition: 0.3s;
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .level-card:hover {
-      transform: translateY(-7px);
-
-      border-color:
-        rgba(37,99,235,0.45);
-
-      box-shadow: var(--shadow);
-    }
-
-    .level-number {
-      color: var(--primary-light);
-
-      font-size: 12px;
-      font-weight: 900;
-
-      margin-bottom: 12px;
-    }
-
-    .level-card h3 {
-      font-size: 21px;
-
-      margin-bottom: 7px;
-    }
-
-    .level-card p {
-      color: var(--text-muted);
-
-      font-size: 13px;
-    }
-
-
-    /* =====================================================
-       PRICING
-    ===================================================== */
-
-    .pricing {
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(37,99,235,0.04),
-          transparent
-        );
-    }
-
-    .pricing-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap: 15px;
-
-      align-items: stretch;
-    }
-
-    .price-card {
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-
-      padding: 26px 20px;
-
-      background: var(--card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 21px;
-
-      transition: 0.3s;
-    }
-
-    .price-card:hover {
-      transform: translateY(-7px);
-
-      border-color:
-        rgba(37,99,235,0.5);
-
-      box-shadow: var(--shadow);
-    }
-
-    .price-card.featured {
-      border-color: var(--gold);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(245,196,81,0.08),
-          var(--card)
-        );
-    }
-
-    .popular {
-      position: absolute;
-
-      top: 12px;
-      left: 12px;
-
-      padding: 4px 9px;
-
-      background: var(--gold);
-
-      color: #111827;
-
-      border-radius: 20px;
-
-      font-size: 9px;
-      font-weight: 900;
-    }
-
-    .price-card h3 {
-      font-size: 16px;
-
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-size: 32px;
-
-      font-weight: 900;
-
-      color: var(--gold);
-
-      line-height: 1.3;
-    }
-
-    .currency {
-      color: var(--text-muted);
-
-      font-size: 11px;
-    }
-
-    .price-description {
-      color: var(--text-muted);
-
-      font-size: 11px;
-
-      margin: 10px 0 20px;
-    }
-
-    .price-button {
-      margin-top: auto;
-
-      width: 100%;
-
-      padding: 11px;
-
-      border: none;
-
-      border-radius: 11px;
-
-      background: var(--primary);
-
-      color: white;
-
-      font-size: 12px;
-
-      font-weight: 800;
-
-      cursor: pointer;
-
-      transition: 0.25s;
-    }
-
-    .price-button:hover {
-      background: var(--primary-light);
-
-      transform: translateY(-2px);
-    }
-
-    .pricing-note {
-      text-align: center;
-
-      margin-top: 25px;
-
-      color: var(--text-muted);
-
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       FEATURES
-    ===================================================== */
-
-    .features-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 17px;
-    }
-
-    .feature-card {
-      padding: 28px;
-
-      border: 1px solid var(--border);
-
-      border-radius: 20px;
-
-      background: var(--card);
-
-      transition: 0.3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-
-      border-color:
-        rgba(37,99,235,0.4);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 14px;
-
-      background: rgba(37,99,235,0.12);
-
-      color: var(--primary-light);
-
-      font-size: 21px;
-
-      margin-bottom: 18px;
-    }
-
-    .feature-card h3 {
-      font-size: 17px;
-
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      color: var(--text-secondary);
-
-      font-size: 13px;
-
-      line-height: 1.9;
-    }
-
-
-    /* =====================================================
-       HOW IT WORKS
-    ===================================================== */
-
-    .steps {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 18px;
-    }
-
-    .step {
-      position: relative;
-
-      padding: 25px;
-
-      border: 1px solid var(--border);
-
-      border-radius: 20px;
-
-      background: var(--card);
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 12px;
-
-      background: var(--primary);
-
-      color: white;
-
-      font-weight: 900;
-
-      margin-bottom: 15px;
-    }
-
-    .step h3 {
-      font-size: 16px;
-
-      margin-bottom: 7px;
-    }
-
-    .step p {
-      color: var(--text-muted);
-
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       TESTIMONIALS
-    ===================================================== */
-
-    .testimonials {
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(37,99,235,0.04),
-          transparent
-        );
-    }
-
-    .demo-notice {
-      max-width: 700px;
-
-      margin: -25px auto 35px;
-
-      text-align: center;
-
-      color: var(--text-muted);
-
-      font-size: 11px;
-    }
-
-    .testimonials-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 18px;
-    }
-
-    .testimonial {
-      padding: 27px;
-
-      border-radius: 20px;
-
-      border: 1px solid var(--border);
-
-      background: var(--card);
-
-      transition: 0.3s;
-    }
-
-    .testimonial:hover {
-      transform: translateY(-5px);
-
-      box-shadow: var(--shadow);
-    }
-
-    .stars {
-      color: var(--gold);
-
-      letter-spacing: 2px;
-
-      margin-bottom: 15px;
-
-      font-size: 14px;
-    }
-
-    .testimonial p {
-      color: var(--text-secondary);
-
-      font-size: 13px;
-
-      line-height: 2;
-
-      margin-bottom: 20px;
-    }
-
-    .student {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
-
-    .student-avatar {
-      width: 43px;
-      height: 43px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--primary),
-          #163e9c
-        );
-
-      color: white;
-
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .student strong {
-      display: block;
-
-      font-size: 13px;
-    }
-
-    .student span {
-      color: var(--text-muted);
-
-      font-size: 10px;
-    }
-
-
-    /* =====================================================
-       CTA
-    ===================================================== */
-
-    .cta {
-      padding: 80px 0;
-    }
-
-    .cta-box {
-      position: relative;
-
-      overflow: hidden;
-
-      padding: 55px 40px;
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #1746a2,
-          #0d2452
-        );
-
-      text-align: center;
-
-      box-shadow:
-        0 30px 80px rgba(13,36,82,0.35);
-    }
-
-    .cta-box::before {
-      content: "";
-
-      position: absolute;
-
-      width: 300px;
-      height: 300px;
-
-      border-radius: 50%;
-
-      background: rgba(255,255,255,0.05);
-
-      top: -150px;
-      right: -100px;
-    }
-
-    .cta-box h2 {
-      position: relative;
-
-      font-size: clamp(27px, 4vw, 43px);
-
-      color: white;
-
-      font-weight: 900;
-
-      margin-bottom: 12px;
-    }
-
-    .cta-box p {
-      position: relative;
-
-      color: rgba(255,255,255,0.78);
-
-      font-size: 14px;
-
-      margin-bottom: 25px;
-    }
-
-    .cta-whatsapp {
-      position: relative;
-
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 13px 25px;
-
-      border-radius: 12px;
-
-      background: white;
-
-      color: #1746a2;
-
-      font-size: 13px;
-
-      font-weight: 900;
-
-      transition: 0.25s;
-    }
-
-    .cta-whatsapp:hover {
-      transform: translateY(-3px);
-
-      background: #f8fafc;
-    }
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    footer {
-      border-top: 1px solid var(--border);
-
-      padding: 35px 0;
-    }
-
-    .footer-content {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 20px;
-    }
-
-    .footer-brand {
-      font-size: 14px;
-
-      font-weight: 900;
-    }
-
-    .footer-brand span {
-      display: block;
-
-      color: var(--text-muted);
-
-      font-size: 10px;
-
-      font-weight: 400;
-    }
-
-    .footer-links {
-      display: flex;
-
-      gap: 20px;
-
-      color: var(--text-muted);
-
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--primary-light);
-    }
-
-
-    /* =====================================================
-       FLOATING WHATSAPP
-    ===================================================== */
-
-    .floating-whatsapp {
-      position: fixed;
-
-      left: 20px;
-      bottom: 20px;
-
-      width: 57px;
-      height: 57px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 50%;
-
-      background: #25D366;
-
-      color: white;
-
-      font-size: 23px;
-
-      z-index: 900;
-
-      box-shadow:
-        0 10px 35px rgba(37,211,102,0.35);
-
-      transition: 0.25s;
-    }
-
-    .floating-whatsapp:hover {
-      transform: scale(1.08);
-    }
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 950px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-      }
-
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-card {
-        max-width: 600px;
-
-        width: 100%;
-
-        margin: auto;
-
-        text-align: right;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .levels-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-
-    @media (max-width: 620px) {
-
-      .navbar {
-        height: 70px;
-      }
-
-      .brand-text {
-        display: none;
-      }
-
-      .nav-cta {
-        padding: 9px 13px;
-
-        font-size: 11px;
-      }
-
-      .theme-btn {
-        width: 40px;
-        height: 40px;
-      }
-
-      .hero {
-        padding-top: 120px;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stat {
-        padding: 20px 10px;
-      }
-
-      .stat strong {
-        font-size: 24px;
-      }
-
-      .levels-grid,
-      .features-grid,
-      .steps,
-      .testimonials-grid,
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 75px 0;
-      }
-
-      .footer-content {
-        flex-direction: column;
-
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-
-        justify-content: center;
-      }
-
-      .floating-whatsapp {
-        width: 52px;
-        height: 52px;
-
-        left: 15px;
-        bottom: 15px;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapway | ماب واي — إعلانات ممولة ودراسة صفحات تزيد مبيعاتك</title>
+
+    <!-- خطوط عربية مريحة للعين: Tajawal للعناوين و IBM Plex Sans Arabic للنصوص -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* ألوان متناسقة مع شعار Mapway مع خلفية فاتحة مريحة للعين */
+                        canvas: '#F6F8FC',
+                        mist: '#EEF3FA',
+                        ink: '#112240',
+                        inksoft: '#33486B',
+                        skyway: {
+                            400: '#60A5FA',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['IBM Plex Sans Arabic', 'sans-serif'],
+                        heading: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* إعدادات أساسية مريحة للعين وتمنع التمرير الأفقي */
+        body {
+            background-color: #F5F8FC;
+            color: #0B1B3B;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* حركة ظهور ناعمة عند التمرير */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+
+        /* حركة طافية خفيفة للبطاقات والعناصر */
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+
+        .animate-float {
+            animation: floatGentle 5.5s ease-in-out infinite;
+        }
+
+        /* شريط تمرير ناعم */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EEF3FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B8C7DE;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1E6BF1;
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-skyway-600 selection:text-white">
 
-
-<body>
-
-  <!-- =====================================================
-       NAVBAR
-  ===================================================== -->
-
-  <header>
-
-    <div class="container navbar">
-
-      <a href="#home" class="brand">
-
-        <div class="logo">
-          CT
-        </div>
-
-        <div class="brand-text">
-          <strong>CareerTalk Academy</strong>
-          <span>طوّر لغتك الإنجليزية وابنِ مستقبلك</span>
-        </div>
-
-      </a>
-
-
-      <nav class="nav-links">
-
-        <a href="#levels">
-          المستويات
-        </a>
-
-        <a href="#pricing">
-          الأسعار
-        </a>
-
-        <a href="#features">
-          مميزاتنا
-        </a>
-
-        <a href="#how">
-          طريقة الدراسة
-        </a>
-
-        <a href="#reviews">
-          آراء الطلاب
-        </a>
-
-      </nav>
-
-
-      <div class="nav-actions">
-
-        <button
-          class="theme-btn"
-          id="themeToggle"
-          aria-label="تغيير الوضع"
-          title="تغيير الوضع">
-
-          ☀️
-
-        </button>
-
-        <a
-          class="nav-cta"
-          href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20الاستفسار%20عن%20الكورسات."
-          target="_blank">
-
-          احجز الآن
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <!-- =====================================================
-       HERO
-  ===================================================== -->
-
-  <main id="home">
-
-    <section class="hero">
-
-      <div class="container hero-grid">
-
-        <div>
-
-          <div class="hero-badge">
-            CareerTalk Academy
-          </div>
-
-          <h1>
-            طوّر لغتك الإنجليزية
-            <br>
-            <span>وابنِ مستقبلك</span>
-          </h1>
-
-          <p class="hero-description">
-
-            برنامج تدريبي منظم من المستوى المبتدئ حتى B2،
-            مع تركيز حقيقي على الـ Speaking والـ Listening
-            والمحادثات والمواقف العملية والاستعداد لسوق العمل.
-
-          </p>
-
-
-          <div class="hero-buttons">
-
-            <a
-              class="btn-primary"
-              href="#pricing">
-
-              اكتشف الباقات
-
+    <!-- شريط التنقل العلوي البسيط -->
+    <header id="navbar" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- شعار Mapway بتصميم متناسق مع الهوية البصرية المرفقة -->
+            <a href="#" class="flex items-center gap-2.5 group shrink-0">
+                <div class="relative flex items-center select-none">
+                    <!-- سهم صاعد يرمز للنمو والوصول -->
+                    <svg class="w-5 h-5 text-[#1E6BF1] -ml-1 mb-5 transition-transform duration-300 group-hover:-translate-y-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 3L4 12h5v9h6v-9h5L12 3z"/>
+                    </svg>
+                    <span class="font-heading font-black text-2xl sm:text-[28px] tracking-tight leading-none">
+                        <span class="text-[#0B1B3B]">Map</span><span class="bg-gradient-to-r from-[#2B82F6] to-[#1E6BF1] bg-clip-text text-transparent">way</span>
+                    </span>
+                </div>
+                <span class="hidden sm:inline-block text-xs text-inksoft border-r border-slate-200 pr-2.5 font-medium">
+                    إعلانات ممولة ونمو مبيعات
+                </span>
             </a>
 
-            <a
-              class="btn-secondary"
-              href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20معرفة%20تفاصيل%20الكورسات."
-              target="_blank">
+            <!-- روابط الأقسام -->
+            <nav class="hidden md:flex items-center gap-7 text-[15px] font-medium text-inksoft">
+                <a href="#paid-ads-importance" class="hover:text-skyway-600 transition-colors">أهمية الإعلان الممول</a>
+                <a href="#why-targeting" class="hover:text-skyway-600 transition-colors">استهداف الجمهور الصح</a>
+                <a href="#our-method" class="hover:text-skyway-600 transition-colors">دراسة وتطوير الصفحة</a>
+                <a href="#results" class="hover:text-skyway-600 transition-colors">نتائج عملائنا</a>
+            </nav>
 
-              تواصل معنا
-
+            <!-- زر صفحة فيسبوك فقط -->
+            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-sm px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                <i data-lucide="facebook" class="w-4 h-4 fill-current"></i>
+                <span>صفحتنا على فيسبوك</span>
             </a>
-
-          </div>
-
         </div>
+    </header>
 
-
-        <div class="hero-card">
-
-          <div class="hero-card-title">
-            رحلة CareerTalk
-          </div>
-
-          <div class="hero-card-main">
-            A1 → B2
-          </div>
-
-
-          <div class="milestones">
-
-            <div class="milestone">
-
-              <div class="milestone-left">
-
-                <div class="milestone-number">
-                  06
+    <!-- غلاف افتتاحي وصدر الصفحة الرئيسي -->
+    <section class="pt-6 pb-16 sm:pt-8 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <!-- صورة غلاف متناسبة الأبعاد في بداية الموقع -->
+            <div class="relative w-full h-[260px] sm:h-[360px] lg:h-[420px] rounded-[2rem] overflow-hidden border border-slate-200/90 shadow-md reveal active">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
+                     alt="غلاف Mapway لإدارة الإعلانات الممولة وتطوير الصفحات لزيادة المبيعات"
+                     class="w-full h-full object-cover object-center"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1400x450/0B1B3B/FFFFFF?text=Mapway';">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1B3B]/90 via-[#0B1B3B]/45 to-transparent flex items-end">
+                    <div class="p-6 sm:p-10 w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
+                        <div class="space-y-1.5 max-w-2xl">
+                            <span class="inline-block px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs sm:text-sm font-heading font-bold text-blue-100">
+                                Mapway • فيسبوك وإنستجرام • مصر وجميع أنحاء العالم
+                            </span>
+                            <p class="font-heading font-extrabold text-xl sm:text-3xl leading-snug">
+                                بنساعد أصحاب البيزنس يوصلوا للعميل المناسب ويزودوا مبيعاتهم بخطوات واضحة
+                            </p>
+                        </div>
+                        <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 bg-[#1E6BF1] hover:bg-[#2B82F6] text-white font-heading font-bold text-sm sm:text-base px-5 py-3 rounded-xl shadow-lg transition-colors shrink-0">
+                            <i data-lucide="facebook" class="w-4 h-4 fill-current"></i>
+                            <span>تواصل عبر صفحتنا</span>
+                        </a>
+                    </div>
                 </div>
-
-                <div>
-                  <strong>A1</strong>
-                  <span>بعد 6 مستويات</span>
-                </div>
-
-              </div>
-
-              <span>Beginner</span>
-
             </div>
 
+            <!-- بطاقة الشرح الرئيسية -->
+            <div class="bg-white rounded-[2rem] border border-slate-200/90 shadow-sm overflow-hidden">
+                <div class="grid lg:grid-cols-12 items-center">
+                    <!-- النص الافتتاحي -->
+                    <div class="lg:col-span-7 p-7 sm:p-10 lg:p-14 space-y-6 reveal active">
+                        <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-[#0B1B3B] leading-[1.25]">
+                            إعلانات ممولة على فيسبوك وإنستجرام <span class="bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] bg-clip-text text-transparent">تزود مبيعاتك</span> وتوصلك للجمهور الصح
+                        </h1>
 
-            <div class="milestone">
+                        <p class="text-base sm:text-lg text-inksoft leading-relaxed">
+                            في <strong>Mapway</strong> نساعد أصحاب المشاريع والبراندات على الوصول للناس المناسبة فعلاً وزيادة المبيعات في كل محافظات مصر ومختلف دول العالم. إحنا مش بنعمل إعلان وخلاص؛ إحنا بندرس صفحتك الأول، وبنحط خطة تخلي صفحتك جذابة وتشد ناس كتير، وبعدها بنطلق إعلانات ممولة تساعدك تحقق التارجت زي عملاء كتير اشتغلوا معانا وحققوه.
+                        </p>
 
-              <div class="milestone-left">
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+                            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-base sm:text-lg px-7 py-3.5 rounded-xl shadow-md shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                                <i data-lucide="facebook" class="w-5 h-5 fill-current"></i>
+                                <span>راسلنا عبر صفحة فيسبوك</span>
+                                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                            </a>
 
-                <div class="milestone-number">
-                  09
+                            <a href="#paid-ads-importance"
+                               class="inline-flex items-center justify-center gap-2 bg-mist hover:bg-slate-200/70 text-[#0B1B3B] font-heading font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-colors">
+                                <span>تعرف على أهمية الإعلان الممول</span>
+                            </a>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-inksoft">
+                            <span class="inline-flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
+                                دراسة الصفحة ووضع خطة جاذبية
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
+                                استهداف الجمهور المناسب لزيادة البيع
+                            </span>
+                            <span class="inline-flex items-center gap-1.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#1E6BF1]"></i>
+                                تغطية مصر وجميع أنحاء العالم
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- صورة توضيحية مرافقة للشرح الرئيسي -->
+                    <div class="lg:col-span-5 relative p-4 sm:p-6 bg-mist/60 h-full flex items-center">
+                        <div class="relative w-full rounded-3xl overflow-hidden shadow-md border border-white">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
+                                 alt="متابعة الحملات الإعلانية وتطوير الصفحات في Mapway"
+                                 class="w-full h-[330px] sm:h-[400px] lg:h-[430px] object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/800x600/EEF3FA/0B1B3B?text=Mapway';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0B1B3B]/75 via-transparent to-transparent flex items-end p-5">
+                                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-3.5 w-full flex items-center gap-3 shadow-sm animate-float">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1E6BF1] to-[#2B82F6] text-white flex items-center justify-center shrink-0">
+                                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-heading font-bold text-[#0B1B3B] text-sm">نساعدك تقفل التارجت وتكبر مبيعاتك</p>
+                                        <p class="text-xs text-inksoft">على فيسبوك وإنستجرام في مصر والعالم</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div>
-                  <strong>A2</strong>
-                  <span>بعد 9 مستويات</span>
-                </div>
-
-              </div>
-
-              <span>Elementary</span>
-
             </div>
-
-
-            <div class="milestone">
-
-              <div class="milestone-left">
-
-                <div class="milestone-number">
-                  12
-                </div>
-
-                <div>
-                  <strong>B1</strong>
-                  <span>بعد 12 مستوى</span>
-                </div>
-
-              </div>
-
-              <span>Intermediate</span>
-
-            </div>
-
-
-            <div class="milestone">
-
-              <div class="milestone-left">
-
-                <div class="milestone-number">
-                  16
-                </div>
-
-                <div>
-                  <strong>B2</strong>
-                  <span>بعد 16 مستوى</span>
-                </div>
-
-              </div>
-
-              <span>Upper-Intermediate</span>
-
-            </div>
-
-          </div>
-
         </div>
-
-      </div>
-
     </section>
 
+    <!-- قسم جديد: أهمية الإعلان الممول مع صورة مخصصة -->
+    <section id="paid-ads-importance" class="py-16 sm:py-20 bg-white border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=950&q=80"
+                             alt="أهمية الإعلان الممول على فيسبوك وإنستجرام في نمو المبيعات"
+                             class="w-full h-[330px] sm:h-[380px] object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/EEF3FA/0B1B3B?text=Paid+Ads';">
+                    </div>
+                </div>
 
-    <!-- =====================================================
-         STATS
-    ===================================================== -->
+                <div class="lg:col-span-7 space-y-5 reveal reveal-delay-1">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
+                        أهمية الإعلان الممول
+                    </span>
 
-    <section class="stats">
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0B1B3B] leading-snug">
+                        ليه الإعلان الممول بقى خطوة أساسية لأي بيزنس عايز <span class="text-[#1E6BF1]">يزود مبيعاته بسرعة</span>؟
+                    </h2>
 
-      <div class="container">
+                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
+                        الاعتماد على النشر العادي أو انتظار الناس توصل لصفحتك بالصدفة بياخد وقت طويل جداً ومبيغطيش غير نسبة بسيطة من متابعينك. الإعلان الممول على فيسبوك وإنستجرام بيخلي منتجك أو خدمتك تظهر قدام ناس جديدة كل يوم، وبيفتحلك باب رسائل وطلبات شراء حقيقية وبيسرّع وصولك للتارجت بتاعك.
+                    </p>
 
-        <div class="stats-grid">
-
-          <div class="stat">
-            <strong>16</strong>
-            <span>مستوى تدريبي</span>
-          </div>
-
-          <div class="stat">
-            <strong>6</strong>
-            <span>Sessions لكل مستوى</span>
-          </div>
-
-          <div class="stat">
-            <strong>2</strong>
-            <span>محاضرتان أسبوعيًا</span>
-          </div>
-
-          <div class="stat">
-            <strong>6–7</strong>
-            <span>طلاب في المجموعة</span>
-          </div>
-
+                    <div class="grid sm:grid-cols-2 gap-4 pt-1">
+                        <div class="bg-canvas p-5 rounded-2xl border border-slate-200/80">
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-[#0B1B3B] mb-1.5">وصول أسرع لعملاء جدد</h3>
+                            <p class="text-sm text-inksoft leading-relaxed">
+                                يخرج بيزنسك من دايرة محدودة ويوصل لآلاف المهتمين بنفس مجالك في وقت قصير.
+                            </p>
+                        </div>
+                        <div class="bg-canvas p-5 rounded-2xl border border-slate-200/80">
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-[#0B1B3B] mb-1.5">تحكم واضح في النتائج</h3>
+                            <p class="text-sm text-inksoft leading-relaxed">
+                                بنقدر نحدد المكان والجمهور والميزانية ونحسّن الحملة باستمرار عشان تجيب أفضل مبيعات.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
-
     </section>
 
+    <!-- القسم الأول: أهمية استهداف الجمهور الصح مع صورة مخصصة -->
+    <section id="why-targeting" class="py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <div class="lg:col-span-7 space-y-5 order-2 lg:order-1 reveal">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
+                        أهمية استهداف الجمهور الصح
+                    </span>
 
-    <!-- =====================================================
-         LEVELS
-    ===================================================== -->
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0B1B3B] leading-snug">
+                        الجمهور الصح هو اللي بيحوّل المشاهدة لـ <span class="text-[#1E6BF1]">مبيعات حقيقية</span> مش مجرد أرقام
+                    </h2>
 
-    <section class="section" id="levels">
+                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
+                        لما إعلانك يظهر لناس مش مهتمة باللي بتقدمه، بتضيع فلوس في تفاعل أو رسائل ملهاش نتيجة. في <strong>Mapway</strong> بنركز إن الإعلان يروح للجمهور المناسب لطبيعة شغلك وسعرك ومكانه، عشان توفر ميزانيتك وتستقبل عملاء جادين عندهم نية حقيقية للشراء.
+                    </p>
 
-      <div class="container">
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-[#1E6BF1]/10 text-[#1E6BF1] flex items-center justify-center mb-3">
+                                <i data-lucide="target" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-[#0B1B3B] mb-1.5">توفير الميزانية ورفع العائد</h3>
+                            <p class="text-sm text-inksoft leading-relaxed">
+                                توجيه الإعلان للناس المناسبة يقلل الهدر ويزود فرص البيع بنفس الميزانية الإعلانية.
+                            </p>
+                        </div>
 
-        <div class="section-header">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-[#1E6BF1]/10 text-[#1E6BF1] flex items-center justify-center mb-3">
+                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-[#0B1B3B] mb-1.5">عملاء مستعدون للشراء</h3>
+                            <p class="text-sm text-inksoft leading-relaxed">
+                                بنستهدف شرائح تهمها منتجاتك أو خدماتك عشان رسائلك تتحول لطلبات فعلية.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="section-label">
-            LEARNING PATH
-          </div>
-
-          <h2 class="section-title">
-            رحلة واضحة من A1 إلى B2
-          </h2>
-
-          <p class="section-description">
-
-            الكورس بتاعنا مكوّن من 16 مستوى،
-            وكل مستوى مصمم بحيث يساعدك تتطور خطوة بخطوة
-            بدل ما تذاكر بشكل عشوائي.
-
-          </p>
-
+                <div class="lg:col-span-5 order-1 lg:order-2 reveal reveal-delay-1">
+                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+                             alt="استهداف الجمهور المناسب بدقة على فيسبوك وإنستجرام"
+                             class="w-full h-[330px] sm:h-[380px] object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/EEF3FA/0B1B3B?text=Right+Audience';">
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-        <div class="levels-grid">
-
-          <div class="level-card">
-
-            <div class="level-number">
-              LEVELS 01–06
-            </div>
-
-            <h3>A1</h3>
-
-            <p>
-              بناء الأساسيات وفهم الجمل والمحادثات اليومية.
-            </p>
-
-          </div>
-
-
-          <div class="level-card">
-
-            <div class="level-number">
-              LEVELS 07–09
-            </div>
-
-            <h3>A2</h3>
-
-            <p>
-              توسيع المفردات وتحسين التواصل في المواقف اليومية.
-            </p>
-
-          </div>
-
-
-          <div class="level-card">
-
-            <div class="level-number">
-              LEVELS 10–12
-            </div>
-
-            <h3>B1</h3>
-
-            <p>
-              تطوير الطلاقة والمحادثة والاستعداد لمواقف العمل.
-            </p>
-
-          </div>
-
-
-          <div class="level-card">
-
-            <div class="level-number">
-              LEVELS 13–16
-            </div>
-
-            <h3>B2</h3>
-
-            <p>
-              مستوى أعلى من الطلاقة والفهم والتواصل المهني.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
 
-
-    <!-- =====================================================
-         PRICING
-    ===================================================== -->
-
-    <section class="section pricing" id="pricing">
-
-      <div class="container">
-
-        <div class="section-header">
-
-          <div class="section-label">
-            PRICING
-          </div>
-
-          <h2 class="section-title">
-            اختار الباقة المناسبة ليك
-          </h2>
-
-          <p class="section-description">
-
-            اضغط على أي باقة وسيتم تحويلك مباشرة إلى WhatsApp
-            برسالة جاهزة تحتوي على الباقة التي اخترتها.
-
-          </p>
-
-        </div>
-
-
-        <div class="pricing-grid">
-
-
-          <!-- 1 LEVEL -->
-
-          <div class="price-card">
-
-            <h3>
-              مستوى واحد
-            </h3>
-
-            <div class="price">
-              1000
-              <span class="currency">جنيه</span>
-            </div>
-
-            <p class="price-description">
-              6 Sessions
-            </p>
-
-            <button
-              class="price-button"
-              onclick="bookPackage('مستوى واحد', '1000 جنيه')">
-
-              احجز الباقة
-
-            </button>
-
-          </div>
-
-
-          <!-- 4 LEVELS -->
-
-          <div class="price-card">
-
-            <h3>
-              4 مستويات
-            </h3>
-
-            <div class="price">
-              2400
-              <span class="currency">جنيه</span>
-            </div>
-
-            <p class="price-description">
-              24 Sessions
-            </p>
-
-            <button
-              class="price-button"
-              onclick="bookPackage('4 مستويات', '2400 جنيه')">
-
-              احجز الباقة
-
-            </button>
-
-          </div>
-
-
-          <!-- 6 LEVELS -->
-
-          <div class="price-card">
-
-            <h3>
-              6 مستويات
-            </h3>
-
-            <div class="price">
-              3000
-              <span class="currency">جنيه</span>
-            </div>
-
-            <p class="price-description">
-              36 Sessions
-            </p>
-
-            <button
-              class="price-button"
-              onclick="bookPackage('6 مستويات', '3000 جنيه')">
-
-              احجز الباقة
-
-            </button>
-
-          </div>
-
-
-          <!-- 10 LEVELS -->
-
-          <div class="price-card featured">
-
-            <div class="popular">
-              الأكثر طلبًا
-            </div>
-
-            <h3>
-              10 مستويات
-            </h3>
-
-            <div class="price">
-              3500
-              <span class="currency">جنيه</span>
-            </div>
-
-            <p class="price-description">
-              60 Sessions
-            </p>
-
-            <button
-              class="price-button"
-              onclick="bookPackage('10 مستويات', '3500 جنيه')">
-
-              احجز الباقة
-
-            </button>
-
-          </div>
-
-
-          <!-- 16 LEVELS -->
-
-          <div class="price-card">
-
-            <h3>
-              16 مستوى
-            </h3>
-
-            <div class="price">
-              3200
-              <span class="currency">جنيه</span>
-            </div>
-
-            <p class="price-description">
-              رحلة كاملة حتى B2
-            </p>
-
-            <button
-              class="price-button"
-              onclick="bookPackage('16 مستوى', '3200 جنيه')">
-
-              احجز الباقة
-
-            </button>
-
-          </div>
-
-
-        </div>
-
-
-        <p class="pricing-note">
-          جميع الأسعار الموضحة هي الأسعار النهائية بدون رسوم تسجيل إضافية.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FEATURES
-    ===================================================== -->
-
-    <section class="section" id="features">
-
-      <div class="container">
-
-        <div class="section-header">
-
-          <div class="section-label">
-            WHY CAREERTALK
-          </div>
-
-          <h2 class="section-title">
-            مش مجرد كورس Grammar
-          </h2>
-
-          <p class="section-description">
-
-            هدفنا إنك تعرف تستخدم الإنجليزي فعليًا،
-            مش بس تحفظ قواعد وكلمات.
-
-          </p>
-
-        </div>
-
-
-        <div class="features-grid">
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              S
-            </div>
-
-            <h3>
-              Speaking
-            </h3>
-
-            <p>
-              هتتكلم باستمرار أثناء المحاضرات
-              وتتدرب على تكوين الجمل والتعبير عن أفكارك.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              L
-            </div>
-
-            <h3>
-              Listening
-            </h3>
-
-            <p>
-              تدريب على فهم الكلام الطبيعي
-              والمحادثات والمواقف المختلفة.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              C
-            </div>
-
-            <h3>
-              Real Conversations
-            </h3>
-
-            <p>
-              محادثات ومواقف قريبة من الحياة اليومية
-              وسوق العمل.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              I
-            </div>
-
-            <h3>
-              Interview Preparation
-            </h3>
-
-            <p>
-              تدريب على الأسئلة الشائعة في مقابلات العمل
-              وتحسين طريقة الإجابة.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              R
-            </div>
-
-            <h3>
-              Role Play
-            </h3>
-
-            <p>
-              تمثيل مواقف عملية تساعدك تتعامل مع
-              السيناريوهات المختلفة بثقة.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">
-              5
-            </div>
-
-            <h3>
-              Small Groups
-            </h3>
-
-            <p>
-              مجموعات صغيرة من 9 إلى 8 طلاب
-              للحصول على وقت أكبر للممارسة.
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         HOW IT WORKS
-    ===================================================== -->
-
-    <section class="section" id="how">
-
-      <div class="container">
-
-        <div class="section-header">
-
-          <div class="section-label">
-            HOW IT WORKS
-          </div>
-
-          <h2 class="section-title">
-            الدراسة مع CareerTalk
-          </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-
-          <div class="step">
-
-            <div class="step-number">
-              01
-            </div>
-
-            <h3>
-              اختار الباقة
-            </h3>
-
-            <p>
-              اختار عدد المستويات المناسب لهدفك.
-            </p>
-
-          </div>
-
-
-          <div class="step">
-
-            <div class="step-number">
-              02
-            </div>
-
-            <h3>
-              تواصل معنا
-            </h3>
-
-            <p>
-              اضغط على الباقة وسيتم تحويلك مباشرة إلى WhatsApp.
-            </p>
-
-          </div>
-
-
-          <div class="step">
-
-            <div class="step-number">
-              03
-            </div>
-
-            <h3>
-              ابدأ الدراسة
-            </h3>
-
-            <p>
-              تنضم للمجموعة وتبدأ التدريب مع المدرّب.
-            </p>
-
-          </div>
-
-
-          <div class="step">
-
-            <div class="step-number">
-              04
-            </div>
-
-            <h3>
-              طوّر مستواك
-            </h3>
-
-            <p>
-              تتقدم تدريجيًا من مستوى إلى المستوى التالي.
-            </p>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         TESTIMONIALS
-    ===================================================== -->
-
-    <section class="section testimonials" id="reviews">
-
-      <div class="container">
-
-        <div class="section-header">
-
-          <div class="section-label">
-            STUDENT REVIEWS
-          </div>
-
-          <h2 class="section-title">
-            آراء طلابنا
-          </h2>
-
-          <p class="section-description">
-            تجارب الطلاب هي أهم دليل على جودة التدريب.
-          </p>
-
-        </div>
-
-
-        <p class="demo-notice">
-          ​"قصص نجاح حقيقية من طلابنا الذين خاضوا التجربة وانضموا إلى عائلة CareerTalk."
-        </p>
-
-
-        <div class="testimonials-grid">
-
-
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <p>
-              " حسيت إن المحاضرات بتخليني أتكلم
-              أكتر بدل ما أفضل أذاكر Grammar بس."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                أ
-              </div>
-
-              <div>
-                <strong>
-                  أحمد محمد
-                </strong>
-
-                <span>
-                  طالب 
+    <!-- القسم الثاني: دراسة الصفحة ووضع خطة لجعلها جذابة مع صورة لكل شرح -->
+    <section id="our-method" class="py-16 sm:py-24 bg-white border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-3.5 mb-14 reveal">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
+                    إحنا مش بنعمل إعلان وخلاص
                 </span>
-              </div>
-
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-[40px] text-[#0B1B3B] leading-tight">
+                    بندرس صفحتك الأول.. وبنحط خطة تخليها جذابة وتشد ناس كتير
+                </h2>
+                <p class="text-base sm:text-lg text-inksoft leading-relaxed">
+                    العميل أول ما يشوف إعلانك بيدخل يبص على الصفحة؛ لو شكلها أو محتواها مش واضح ومشجع بيخرج بسرعة. عشان كده بنشتغل معاك في ثلاث خطوات متكاملة ولكل خطوة دور واضح:
+                </p>
             </div>
 
-          </div>
+            <div class="grid md:grid-cols-3 gap-7">
+                <!-- الخطوة 1 -->
+                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                                 alt="دراسة وتحليل صفحة العميل قبل إطلاق الإعلان"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Study+Page';">
+                            <span class="absolute top-3 right-3 bg-[#0B1B3B] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
+                                01 • دراسة الصفحة
+                            </span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">بندرس صفحتك بالكامل</h3>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            بندخل ندرس صفحتك ونشوف طريقة عرض منتجاتك أو خدماتك، وإيه اللي بيخلي الزائر يكمل أو يخرج، عشان نبدأ على أساس مظبوط.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- الخطوة 2 -->
+                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal reveal-delay-1">
+                    <div>
+                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
+                                 alt="وضع خطة عملية لجعل الصفحة جذابة وتستهدف ناس كتير"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Attractive+Plan';">
+                            <span class="absolute top-3 right-3 bg-[#1E6BF1] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
+                                02 • خطة الجاذبية
+                            </span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">خطة تخلي صفحتك جذابة وتشد ناس كتير</h3>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            بنحطلك خطة عملية تخلي شكل صفحتك ومحتواها جذابة ومريحة للعين، وتشد ناس كتير وتبني ثقة تخلي العميل يرتاحلك ويطلب منك.
+                        </p>
+                    </div>
+                </div>
 
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
+                <!-- الخطوة 3 -->
+                <div class="bg-canvas rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between reveal reveal-delay-2">
+                    <div>
+                        <div class="rounded-2xl overflow-hidden h-44 mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                                 alt="إطلاق إعلانات ممولة في مصر والعالم لزيادة المبيعات"
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/EEF3FA/0B1B3B?text=Egypt+And+World';">
+                            <span class="absolute top-3 right-3 bg-[#0B1B3B] text-white font-heading font-bold text-xs px-3 py-1 rounded-full">
+                                03 • إعلانات في مصر والعالم
+                            </span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-[#0B1B3B] mb-2.5">إعلانات تزود مبيعاتك في مصر والعالم</h3>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            بنطلق إعلانات ممولة على فيسبوك وإنستجرام توصل لكل أنحاء مصر ومختلف دول العالم باستهداف دقيق عشان تزود مبيعاتك وتحقق التارجت.
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <p>
-              " أكتر حاجة عجبتني إن التدريب كان
-              قائم على المحادثة والمواقف العملية."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                س
-              </div>
-
-              <div>
-                <strong>
-                  سارة علي
-                </strong>
-
-                <span>
-                  طالبة 
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <p>
-              " المجموعة الصغيرة خلت عندي فرصة
-              أكبر إني أتكلم وأتدرب."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                م
-              </div>
-
-              <div>
-                <strong>
-                  محمد خالد
-                </strong>
-
-                <span>
-                   طالب 
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <p>
-              " بدأت أفهم الكلام بشكل أفضل
-              وبقيت أقدر أكون جمل أسرع."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                ن
-              </div>
-
-              <div>
-                <strong>
-                  نور أحمد
-                </strong>
-
-                <span>
-                  طالبة 
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <p>
-              " طريقة التدريب مناسبة جدًا
-              لأي شخص هدفه يشتغل ويحتاج English عملي."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                ع
-              </div>
-
-              <div>
-                <strong>
-                  عمر محمود
-                </strong>
-
-                <span>
-                  طالب 
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="testimonial">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <p>
-              " حسيت إن عندي خطة واضحة
-              بدل ما أذاكر الإنجليزي بشكل عشوائي."
-            </p>
-
-            <div class="student">
-
-              <div class="student-avatar">
-                ر
-              </div>
-
-              <div>
-                <strong>
-                  ريم حسن
-                </strong>
-
-                <span>
-                  طالبة 
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-
         </div>
-
-      </div>
-
     </section>
 
+    <!-- القسم الثالث: مساعدة عملاء كثيرين على تحقيق التارجت مع صورة -->
+    <section id="results" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center mb-12 reveal">
+                <div class="lg:col-span-7 space-y-3">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-mist text-[#1E6BF1] font-heading font-bold text-xs sm:text-sm">
+                        تحقيق التارجت وزيادة المبيعات
+                    </span>
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-[40px] text-[#0B1B3B] leading-tight">
+                        ساعدنا ناس كتير جداً يحققوا التارجت ويزودوا مبيعاتهم
+                    </h2>
+                    <p class="text-base sm:text-lg text-inksoft leading-relaxed">
+                        اشتغلنا مع أصحاب مشاريع وبراندات متنوعة في مصر وخارجها، وركزنا على تهيئة الصفحة واستهداف الجمهور المناسب عشان نوصل لنتائج ملموسة في المبيعات.
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                             alt="فريق Mapway يساعد أصحاب المشاريع على تحقيق التارجت"
+                             class="w-full h-56 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/700x350/EEF3FA/0B1B3B?text=Target+Achieved';">
+                    </div>
+                </div>
+            </div>
 
-    <!-- =====================================================
-         CTA
-    ===================================================== -->
+            <div class="grid md:grid-cols-3 gap-7">
+                <!-- رأي 1 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            "كنا بنعمل إعلانات والنتيجة مش قد الطموح. فريق Mapway درس الصفحة الأول، ظبط طريقة عرض المنتجات، واستهدف الجمهور الصح—وبفضل الله حققنا التارجت ومبيعاتنا زادت."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80"
+                             alt="أحمد محمود"
+                             class="w-11 h-11 rounded-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=AM';">
+                        <div>
+                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">أحمد محمود</h3>
+                            <span class="text-xs text-inksoft">صاحب براند ملابس — القاهرة</span>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="cta">
+                <!-- رأي 2 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal reveal-delay-1">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            "أكتر حاجة عجبتني إنهم مش مجرد ناس بتعمل إعلان وخلاص؛ حطولي خطة خلت صفحتي جذابة وتشد ناس كتير، ووصلنا لعملاء في مصر ودول الخليج والنتيجة كانت ممتازة."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80"
+                             alt="سارة عبد الرحمن"
+                             class="w-11 h-11 rounded-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=SA';">
+                        <div>
+                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">سارة عبد الرحمن</h3>
+                            <span class="text-xs text-inksoft">صاحبة متجر منتجات عناية — الإسكندرية</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="container">
-
-        <div class="cta-box">
-
-          <h2>
-            جاهز تبدأ رحلتك؟
-          </h2>
-
-          <p>
-            اختار الباقة المناسبة ليك وتواصل معنا مباشرة.
-          </p>
-
-          <a
-            class="cta-whatsapp"
-            href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20الاشتراك%20في%20أحد%20الكورسات."
-            target="_blank">
-
-            تواصل معنا عبر WhatsApp
-
-          </a>
-
+                <!-- رأي 3 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between reveal reveal-delay-2">
+                    <div class="space-y-3.5">
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-sm sm:text-[15px] text-inksoft leading-relaxed">
+                            "الاستهداف الدقيق فرق معانا جداً في نوعية العملاء اللي بتبعت؛ بقى بيجيلنا عميل فاهم وعارف هو عايز إيه وجاهز يشتري، وده ساعدنا نحقق التارجت بسهولة."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-5 mt-5 border-t border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80"
+                             alt="كريم السيد"
+                             class="w-11 h-11 rounded-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/EEF3FA/0B1B3B?text=KS';">
+                        <div>
+                            <h3 class="font-heading font-bold text-[#0B1B3B] text-sm sm:text-base">كريم السيد</h3>
+                            <span class="text-xs text-inksoft">مدير شركة تجهيزات — المنصورة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
-
     </section>
 
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ===================================================== -->
-
-  <footer>
-
-    <div class="container footer-content">
-
-      <div class="footer-brand">
-
-        CareerTalk Academy
-
-        <span>
-          طوّر لغتك الإنجليزية وابنِ مستقبلك
-        </span>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <a
-          href="https://wa.me/201095126158"
-          target="_blank">
-
-          WhatsApp
-
-        </a>
-
-        <a
-          href="https://www.facebook.com/share/14oYpD7UNM2/"
-          target="_blank">
-
-          Facebook
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =====================================================
-       FLOATING WHATSAPP
-  ===================================================== -->
-
-  <a
-    class="floating-whatsapp"
-    href="https://wa.me/201095126158?text=السلام%20عليكم%20CareerTalk%20Academy،%20أرغب%20في%20معرفة%20تفاصيل%20الكورسات."
-    target="_blank"
-    aria-label="WhatsApp">
-
-    ☎
-
-  </a>
-
-
-  <!-- =====================================================
-       JAVASCRIPT
-  ===================================================== -->
-
-  <script>
-
-    /* =====================================================
-       WHATSAPP PACKAGE BOOKING
-    ===================================================== */
-
-    function bookPackage(packageName, price) {
-
-      const phone = "201095126158";
-
-      const message =
-        `السلام عليكم CareerTalk Academy،%0A%0A` +
-        `أنا مهتم بباقة: ${packageName}%0A` +
-        `السعر: ${price}%0A%0A` +
-        `وأرغب في معرفة التفاصيل والحجز.`;
-
-      const whatsappURL =
-        `https://wa.me/${phone}?text=${message}`;
-
-      window.open(
-        whatsappURL,
-        "_blank"
-      );
-
-    }
-
-
-    /* =====================================================
-       DARK / LIGHT MODE
-    ===================================================== */
-
-    const body =
-      document.body;
-
-    const themeButton =
-      document.getElementById(
-        "themeToggle"
-      );
-
-
-    function updateThemeButton() {
-
-      const isLight =
-        body.classList.contains("light");
-
-      if (isLight) {
-
-        themeButton.textContent = "🌙";
-
-        themeButton.setAttribute(
-          "title",
-          "تفعيل الوضع الليلي"
-        );
-
-        themeButton.setAttribute(
-          "aria-label",
-          "تفعيل الوضع الليلي"
-        );
-
-      } else {
-
-        themeButton.textContent = "☀️";
-
-        themeButton.setAttribute(
-          "title",
-          "تفعيل الوضع النهاري"
-        );
-
-        themeButton.setAttribute(
-          "aria-label",
-          "تفعيل الوضع النهاري"
-        );
-
-      }
-
-    }
-
-
-    themeButton.addEventListener(
-      "click",
-      function() {
-
-        body.classList.toggle("light");
-
-        const currentTheme =
-          body.classList.contains("light")
-            ? "light"
-            : "dark";
-
-        localStorage.setItem(
-          "careertalk-theme",
-          currentTheme
-        );
-
-        updateThemeButton();
-
-      }
-    );
-
-
-    /* =====================================================
-       LOAD SAVED THEME
-    ===================================================== */
-
-    const savedTheme =
-      localStorage.getItem(
-        "careertalk-theme"
-      );
-
-
-    if (savedTheme === "light") {
-
-      body.classList.add("light");
-
-    }
-
-
-    updateThemeButton();
-
-
-    /* =====================================================
-       SMOOTH NAVIGATION
-    ===================================================== */
-
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(function(link) {
-
-        link.addEventListener(
-          "click",
-          function(event) {
-
-            const target =
-              document.querySelector(
-                this.getAttribute("href")
-              );
-
-            if (target) {
-
-              event.preventDefault();
-
-              target.scrollIntoView({
-                behavior: "smooth"
-              });
-
+    <!-- دعوة أخيرة للتواصل عبر صفحة فيسبوك فقط -->
+    <section class="pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto bg-white rounded-[2rem] border border-slate-200/90 p-7 sm:p-12 shadow-sm reveal">
+            <div class="grid lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 space-y-2.5">
+                    <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#0B1B3B] leading-snug">
+                        جاهز تخلي صفحتك جذابة وتوصل لجمهورك وتقفل التارجت؟
+                    </h2>
+                    <p class="text-sm sm:text-base text-inksoft leading-relaxed">
+                        ابعتلنا على صفحتنا الرسمية على فيسبوك وهنبدأ بدراسة صفحتك ونقولك إزاي نكبر مبيعاتك بإعلانات ممولة مدروسة صح.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 flex lg:justify-end">
+                    <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#1E6BF1] to-[#2B82F6] hover:from-[#1657C9] hover:to-[#1E6BF1] text-white font-heading font-bold text-base px-7 py-3.5 rounded-xl shadow-md transition-all duration-300">
+                        <i data-lucide="facebook" class="w-5 h-5 fill-current"></i>
+                        <span>راسلنا على فيسبوك</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة برابط صفحة فيسبوك فقط -->
+    <footer class="bg-white border-t border-slate-200/80 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div class="flex items-center gap-2.5">
+                <span class="font-heading font-black text-2xl leading-none">
+                    <span class="text-[#0B1B3B]">Map</span><span class="text-[#1E6BF1]">way</span>
+                </span>
+                <span class="text-xs sm:text-sm text-inksoft border-r border-slate-200 pr-2.5">
+                    إعلانات ممولة • دراسة وتطوير الصفحات • مصر والعالم
+                </span>
+            </div>
+
+            <a href="https://www.facebook.com/share/1FNCT4fMYx/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-[#0B1B3B] hover:text-[#1E6BF1] font-heading font-bold text-sm bg-mist px-4 py-2.5 rounded-xl transition-colors">
+                <i data-lucide="facebook" class="w-4 h-4 text-[#1877F2] fill-current"></i>
+                <span>صفحة Mapway الرسمية على فيسبوك</span>
+            </a>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-5 border-t border-slate-100 text-center text-xs text-slate-400">
+            © <span id="year"></span> Mapway. جميع الحقوق محفوظة.
+        </div>
+    </footer>
+
+    <script>
+        // تهيئة الأيقونات وتحديث السنة بأمان
+        try {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+            const yearEl = document.getElementById('year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
             }
 
-          }
-        );
+            // إظهار العناصر بسلاسة أثناء التمرير
+            const revealElements = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-      });
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                revealElements.forEach(el => el.classList.add('active'));
+            }
 
-  </script>
-
+            // إضافة ظل خفيف للشريط العلوي عند التمرير
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (!navbar) return;
+                navbar.classList.toggle('shadow-sm', window.scrollY > 16);
+            }, { passive: true });
+        } catch (err) {
+            console.error('Mapway UI initialization error:', err);
+        }
+    </script>
 </body>
 </html>
